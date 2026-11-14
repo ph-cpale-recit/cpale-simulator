@@ -1,0 +1,54 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java Development Kit (JDK)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Accept Licenses & Configure Android NDK
+        run: |
+          yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;26.1.10909125"
+          echo "ANDROID_HOME=${ANDROID_HOME}" >> $GITHUB_ENV
+          echo "NDK_HOME=${ANDROID_HOME}/ndk/26.1.10909125" >> $GITHUB_ENV
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Setup Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android, armv7-linux-androideabi
+
+      - name: Install Frontend Dependencies
+        run: npm install
+
+      - name: Initialize Tauri Android Harness
+        run: |
+          if [ ! -d "src-tauri/gen/android" ]; then
+            npm run tauri android init -- --ci
+          fi
+
+      - name: Build Android Debug APK
+        run: npm run tauri android build -- --apk --target aarch64 --debug
+
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: BarRecitationSimulator-Android-APK
+          path: src-tauri/gen/android/app/build/outputs/apk/**/*.apk
+          if-no-files-found: warn

@@ -1,0 +1,16 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Default permissions for Bar Simulator",
+  "windows": ["main"],
+  "remote": {
+    "urls": [
+      "https://ph-bar-recit.github.io/bar-recitation-simulator/*"
+    ]
+  },
+  "permissions": [
+    "core:default",
+    "dialog:default",
+    "fs:default"
+  ]
+}

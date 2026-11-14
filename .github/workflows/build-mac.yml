@@ -1,0 +1,37 @@
+name: Build macOS DMG
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-mac:
+    runs-on: macos-14
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Rust stability
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install dependencies (macOS)
+        run: npm install
+
+      - name: Build Tauri App (DMG)
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: --bundles dmg
+
+      - name: Upload macOS DMG Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS-DMG
+          path: src-tauri/target/release/bundle/dmg/*.dmg
+          if-no-files-found: warn
