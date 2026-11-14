@@ -1,20 +1,736 @@
-# CPALE Official Syllabus
+# Official PRC LECPA / CPALE Syllabi (Effective October 2022)
 
-## FAR
+## FAR (Pages 1-4)
 
-Syllabus content not found.
+1 
+ 
+ 
+ 
+ 
+ANNEX “A” 
+ 
+ 
+THE LICENSURE EXAMINATION FOR CERTIFIED PUBLIC ACCOUNTANTS 
+(LECPA) SYLLABUS  
+FINANCIAL ACCOUNTING AND REPORTING 
+                                    Effective October 2022 Examination 
+ 
+This subject covers the candidates’ ability to demonstrate understanding and application of 
+accounting principles and standards relating to: nature and composition of accounts, initial 
+recognition, measurement and valuation, subsequent events and transactions, subsequent 
+measurement and recognition of losses due to impairment and other causes, related party 
+transactions, financial statement presentation and disclosures. 
+ 
+The candidates must have a working knowledge in the application of the various financial 
+accounting and reporting standards relating to the above. 
+ 
+The candidates must also be able to communicate effectively matters pertaining to the financial 
+accounting work that will be handled. 
+ 
+The knowledge of the candidates in the competencies cited above is that of an entry level 
+accountant who can address the fundamental requirements of the various parties that the 
+candidates will be interacting professionally in the future. 
+ 
+New laws, standards and other issuances which are effective as of the date of the examination 
+shall supersede the related topic listed in the syllabus and will be included in the examination, 
+unless there is an advisory from the Board of Accountancy to the contrary.   
+ 
+The examination shall have seventy (70) multiple choice questions. 
+ 
+The syllabus for the subject is presented below. 
+ 
+1.0 Development of Financial Reporting Framework, Standard-Setting Bodies and 
+Regulation of the Accountancy Profession 
+1.1 History, Development and Functions of the Standard-Setting Bodies 
+1.1.1 IASB 
+1.1.2 IFRIC and SIC 
+1.1.3 FRSC 
+1.1.4 PIC  
+1.2 Regulation and Environment of the Accounting Profession in the Philippines 
+1.2.1 The Professional Regulatory Board of Accountancy 
+1.2.2 The accredited professional organization of professional accountants in the 
+Philippines 
+1.2.3   Sectors of the practice of accountancy profession and the accreditation 
+requirements 
+ 
+2.0 Conceptual Framework, Accounting Process and Presentation of Financial 
+Statements 
+2.1 The Conceptual Framework for Financial Reporting  
+2.1.1 Objective and status of the Conceptual Framework 
+2.1.2 Qualitative Characteristics of Useful Financial Information 
+2.1.3 Definition of, recognition and derecognition criteria and measurement bases 
+for the elements of the financial statements 
+2.1.4 Concepts of capital and capital maintenance 
+    2.2    The Accounting Process 
+2.2.1 The steps in the accounting process 
+2.2.2   The use of the special journals, general journal, subsidiary ledgers, and 
+general ledgers 
+2.2.3 Completing the accounting cycle, including use of worksheet, adjusting 
+entries, closing entries, and reversing entries  
+2.3 Presentation of the Financial Statements 
+2.3.1 General features 
+2.3.2 Statement of Financial Position
+2 
+ 
+2.3.2.1  Definition of elements 
+2.3.2.2  Classified Statement of Financial Position 
+2.3.3 Statement of Comprehensive Income 
+2.3.3.1 Nature of expense 
+2.3.3.2 Function of expense 
+2.3.3.3 Components of profit from continuing operations 
+2.3.3.4 Components of discontinued operations 
+2.3.4 Statement of Changes in Equity 
+2.3.5 Statement of Cash Flows 
+2.3.5.1 Sections of the statement of cash flows 
+2.3.5.2 Preparing cash flows from operations: direct and indirect methods 
+2.3.6 Notes to the Financial Statements 
+2.3.7 Computation and Disclosures of Earnings Per Share Information  
+2.3.7.1 Basic EPS 
+2.3.7.2 Diluted EPS 
+ 
+3.0 Cash and other Financial Assets 
+3.1 Cash 
+3.1.1 Nature and composition of cash 
+3.1.2 Preparing the bank reconciliation 
+3.1.3 Accounting for petty cash fund  
+3.2 Other Financial Assets (initial recognition, basis for classification, subsequent 
+measurement, reclassification, and presentation in the financial statements)  
+3.2.1 Financial assets at fair value through profit or loss 
+3.2.2 Financial assets at fair value through other comprehensive income 
+3.2.3 Financial assets at amortized cost 
+3.2.3.1 Trade and other receivables 
+3.2.3.1.1 Valuation using allowance for doubtful accounts 
+3.2.3.1.2 Transfer of receivables (pledging, assignment, and 
+factoring) 
+3.2.3.2 Other financial assets at amortized cost (including investment in 
+bonds)  
+3.2.4   Investment in associates and joint venture 
+  
+4.0 Non-financial Assets 
+4.1 Inventories 
+4.1.1 Nature  
+4.1.2 Capitalizable cost at initial recognition 
+4.1.3 Inventory cost flow assumptions  
+4.1.4 Subsequent measurement at lower of cost or estimated selling price less 
+cost to complete and sell 
+4.1.5 Estimation procedures – gross profit and retail inventory method 
+4.2 Property, plant, and equipment 
+4.2.1 Nature  
+4.2.2 Capitalizable cost at initial recognition 
+4.2.3 Borrowing costs 
+4.2.4 Subsequent expenditures 
+4.2.5 Subsequent measurement  
+4.2.5.1  Cost method 
+4.2.5.1.1 Depreciation  
+4.2.5.1.2 Depreciation methods 
+4.2.5.1.3 Changes in useful life and depreciation methods 
+4.2.5.2 Revaluation 
+4.2.6 Impairment 
+4.2.7 Retirement and disposals 
+4.3 Investment property 
+4.3.1 Nature  
+4.3.2 Capitalizable cost at initial recognition 
+4.3.3 Measurement subsequent to initial recognition 
+4.3.3.1 Cost method 
+4.3.3.2 Fair value method
+3 
+ 
+4.3.4 Derecognition and reclassification  
+4.4 Intangible assets 
+4.4.1 Nature  
+4.4.2 Capitalizable cost at initial recognition 
+4.4.3 Subsequent expenditures 
+4.4.4 Subsequent measurements 
+4.4.4.1 Finite lives assets - amortization 
+4.4.4.2 Indefinite lives assets 
+4.4.5 Impairment  
+4.4.6 Derecognition 
+4.5 Biological assets 
+4.5.1 Nature, distinction from bearer plants and agricultural produce 
+4.5.2 Capitalizable cost at initial recognition 
+4.5.3 Subsequent measurement 
+4.6 Non-current assets held for sale (or disposal group) 
+4.6.1 Nature – criteria for this classification 
+4.6.2 Capitalizable cost at initial recognition 
+4.6.3 Measurement subsequent to initial recognition 
+4.6.4 Reclassification  
+4.6.5 Derecognition 
+4.7 Prepaid expenses and other assets 
+ 
+5.0 Financial Liabilities  
+5.1 Classification of financial liabilities 
+5.2 Initial recognition 
+5.3 Debt issue cost 
+5.4 Measurement using effective interest method 
+5.5 Troubled debt restructuring   
+ 
+6.0 Non-financial liabilities, provisions, and contingencies 
+6.1 Liabilities arising from customer loyalty programs 
+6.2 Warranties and product guarantees 
+6.3 Unearned revenues arising from contracts, gift certificates, and subscriptions  
+6.4 Other provisions and contingencies 
+ 
+7.0 Shareholders’ Equity 
+7.1 Share capital transactions 
+7.1.1   Initial issuance, stock issuance cost  
+7.1.2   Treasury share transactions 
+7.1.3   Retirement, conversion  
+7.2 Retained earnings 
+7.2.1 Correction of prior period errors and change in accounting policies 
+7.2.2 Dividends 
+7.2.3   Quasi reorganization and recapitalization  
+7.3   Cumulative other comprehensive income  
+7.4   Computation of book value per share 
+ 
+8.0 Other Topics 
+8.1   Share-based payment transactions 
+8.1.1 Equity-settled 
+8.1.2   Cash-settled 
+8.1.3   Equity-settled with cash alternative 
+8.2    Leases 
+8.2.1   Books of Lessee 
+8.2.1.1   Initial recognition of right-of-use asset and lease liability 
+8.2.1.2   Subsequent measurement of right-of-use asset and lease liability 
+(including changes in estimates) 
+8.2.1.3   Financial statement presentation of right-of-use asset and lease 
+liability 
+8.2.1.4   Exemption to recognition and measurement principles 
+8.2.2   Books of Lessor
+4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+8.2.2.1   Direct finance lease 
+8.2.2.2   Manufacturer’s or dealer’s lease 
+8.2.2.3   Operating lease 
+8.2.3   Sale-leaseback  
+8.3   Income Tax 
+8.3.1 Accounting profit and taxable profit  
+8.3.2 Book basis and tax basis 
+8.3.3   Computation and accounting for current income tax and deferred income 
+tax, deferred tax liability (asset) and current income tax liability (asset)  
+8.3.4 Financial statement presentation and disclosure 
+8.4   Employee benefits 
+8.4.1 Nature and classification  
+8.4.2 Recognition and measurement of employee benefit costs under defined 
+benefit plan and defined contribution plan 
+8.4.3   Presentation and disclosures 
+8.5   Interim Reporting  
+8.5.1   Purpose and components of interim financial reports 
+8.5.2 Recognition of income, expenses, assets, and liabilities for interim reporting 
+8.6 Operating segments 
+8.6.1   Identifying operating segments 
+8.6.2   Reporting segment information  
+ 
+9.0 Other Reporting Frameworks  
+9.1 Applicability and salient differences from PFRS of the following reporting 
+frameworks 
+9.1.1 PFRS for SMEs 
+9.1.2   PFRS for Small Entities 
+9.1.3   Reporting for microenterprises
 
-## AFAR
+---
 
-Syllabus content not found.
+## AFAR (Pages 5-8)
 
-## MS
+5 
+ 
+THE LICENSURE EXAMINATION FOR CERTIFIED PUBLIC ACCOUNTANTS 
+(LECPA) SYLLABUS 
+ADVANCED FINANCIAL ACCOUNTING AND REPORTING 
+ 
+Effective October 2022 Examination 
+ 
+This subject covers the candidates’ knowledge of the concepts and principles in advanced 
+financial accounting and reporting and the application of these accounting concepts including 
+techniques and methodology to problems likely to be encountered in practice. Candidates should 
+know and understand problems involving accounting of special transactions and their effects and 
+presentation in the financial statements including among others: accounting for partnerships, 
+corporate liquidation, joint arrangements, revenue recognition, home office, branch and agency 
+transactions, business combinations, separate and consolidated financial statements, foreign 
+currency transactions and translations, not for-profit organizations, including government and cost 
+accounting. Also, a working knowledge of the standards related to these special topics on 
+insurance contracts, service concession arrangement and derivatives are expected of the 
+candidates. 
+ 
+The candidates must also be able to communicate effectively matters pertaining to these special 
+accounting topics and the related work that will be handled. 
+ 
+The knowledge of the candidates in the competencies cited above is that of an entry level 
+accountant who can address the fundamental requirements of the various parties that the 
+candidates will be interacting professionally in the future. 
+ 
+New laws, standards and other issuances which are effective as of the date of the examination 
+shall supersede the related topic listed in the syllabus and will be included in the examination, 
+unless there is an advisory from the Board of Accountancy to the contrary.   
+ 
+The examination shall have seventy (70) multiple choice questions. 
+ 
+The syllabus for the subject is presented below. 
+ 
+1.0 Partnership Accounting 
+1.1 Nature, scope, and objectives 
+1.1.1 Differentiate from single proprietorship and corporation accounting 
+1.1.2 Concepts, principles, rules, practices, and procedures 
+1.2 Formation 
+1.2.1 Initial capital contribution 
+1.3 Operation/Dissolution/changes in ownership interest 
+1.3.1 Admission of a new partner 
+1.3.1.1 By purchase of interest 
+1.3.1.2 By investment 
+1.3.2 Withdrawal, retirement, or death of a partner 
+1.3.3 Incorporation of a partnership 
+1.4 Liquidation of partnership 
+1.4.1 Lump – sum method 
+1.4.2 Installment method 
+ 
+2.0 Corporate Liquidation 
+2.1 Statement of Affairs 
+2.2 Statement of Deficiency 
+2.3 Statement of Realization and Liquidation 
+2.4 Determination of the order of priority of claimants of company assets subject to 
+liquidation 
+ 
+3.0    Joint Arrangements (PFRS 11) 
+3.1 Joint Operations 
+3.1.1 Nature and scope 
+3.1.2 Differentiate from business combination
+6 
+ 
+3.1.3 Standards principles and methods 
+3.2   Joint Venture (equity method) 
+   3.2.1    Nature and scope 
+   3.2.2    Differentiate from business combination 
+3.2.3 Standards, principles, and methods 
+ 
+4.0    Revenue Recognition (PFRS 15) 
+4.1   Revenue from Contracts with Customers 
+4.1.1 Five-Steps Model Framework  
+4.1.2   Other Revenue Recognition Issues  
+4.1.2.1    Right of return 
+4.1.2.2    Principal-agent relationships 
+4.1.2.3    Non-refundable upfront fees 
+4.1.2.4  Licensing / Royalties 
+4.1.2.5  Repurchase arrangements 
+4.1.2.6  Gift Cards 
+4.1.2.7  Consignment arrangements 
+4.1.2.8  Bill-and-hold arrangements 
+4.1.2.9     Long – term Construction Contracts 
+4.1.2.9.1    Percentage of completion method 
+4.1.2.9.1.1 Input method 
+4.1.2.9.1.2 Output method 
+4.1.2.9.2  Contract Asset / Contract Liability 
+4.1.2.10   Franchise Operations – Franchisor’s point of view 
+4.1.2.10.1 Journal entries and determination of revenue, cost, and 
+gross profit 
+4.1.2.10.1.1  Initial franchise fee 
+4.1.2.10.1.2  Continuing franchise fee 
+4.1.2.11 Accounting for Consignment Sales 
+4.1.2.11.1 Amount Remitted 
+4.1.2.11.2 Ending Inventory Valuation 
+4.1.2.11.3 Determination of Net Income 
+4.1.3   Financial Statement Presentation 
+ 
+5.0    Accounting for Home Office, Branch and Agency Transactions 
+5.1   Transactions on the books of the home office and the branch 
+5.1.1 General Procedure 
+5.1.2 Special Procedure (inter- branch transfer of cash and merchandise at billed 
+price) 
+5.2 Reconciliation of reciprocal accounts 
+5.3 Preparation of individual and combined financial statements 
+5.4 Accounting for agency transactions 
+ 
+6.0 Business Combination (PFRS 3) 
+6.1 Nature, scope, and characteristics 
+6.2 Statutory Merger and Consolidation/Acquisition of assets and liabilities (acquisition 
+method) 
+6.2.1 Determination of Consideration Transferred 
+6.2.2 Recognition of Acquired Assets and Liabilities 
+6.2.3 Recognition and Measurement of Goodwill and Gain from a Bargain 
+Purchase 
+6.2.4 Journal Entries 
+6.3    Financial Statement Presentation 
+ 
+7.0 Separate Financial Statements (PAS 27) 
+7.1 Accounting for Investment in Subsidiaries, Associates and Joint Ventures 
+7.1.1 At Cost 
+7.1.2 Financial Instruments: Recognition and Measurement (PAS 39) 
+7.1.3 Financial Instruments in accordance with PFRS 9 
+7.2 Accounting for dividends and related disclosure requirements
+7 
+ 
+8.0 Consolidated Financial Statements (PFRS 10) 
+8.1 Consolidation procedures 
+8.1.1 Net income, dividends, amortization, and impairment of goodwill 
+8.1.2 With intercompany transactions (Inventories, land, and depreciable assets) 
+8.1.3 Determination of: 
+8.1.3.1 Net Income/ Other Comprehensive Income/ Equity 
+8.1.3.1.1 Attributable to Equity Holders of Parent/ Controlling or 
+Parent’s Interest  
+8.1.3.1.2 Non-controlling Interest 
+8.1.3.1.3 Consolidated/ Group 
+8.1.3.2 Retained Earnings/ Common Share / Dividends 
+8.1.3.2.1 Attributable to Equity Holders of Parent / Controlling or 
+Parent’s Interest/ Consolidated / Group 
+ 
+9.0 Derivatives and Hedging Accounting (PFRS 9) 
+9.1 Accounting for Derivatives 
+9.1.1 Recognition and Derivatives 
+9.1.2 Types of Derivatives 
+9.1.2.1 Forwards and Futures 
+9.1.2.2 Options 
+9.2 Hedging Activities:  Hedging Foreign Currency Exposures 
+9.2.1 Foreign Currency Forward Contracts 
+9.2.1.1 Hedges that does not requires a Hedge Accounting (undesignated 
+hedges) 
+9.2.1.1.1 Exposed Asset (Import) or Liability (Export) Position 
+9.2.1.1.2 Speculation 
+9.2.1.2 Hedges that requires a Hedge Accounting: 
+9.2.1.2.1 Fair value hedge 
+9.2.1.2.1.1 Hedge of a Firm Commitment (purchase 
+or sale transaction) 
+9.2.1.2.2 Cash flow hedge 
+9.2.1.2.2.1 Hedge of a Firm Commitment (purchase 
+or sale transaction) 
+9.2.1.2.2.2 Hedge of a Forecasted Transaction 
+(purchase or sale transaction) 
+9.2.1.2.2.3 Hedge of a net investment in foreign 
+entity 
+ 
+10.0 Translation of Foreign Currency Financial Statements (PAS 21/ PAS 29) 
+10.1 Translation from the Functional Currency into the Presentation Currency (Closing/ 
+Current Rate Method) 
+10.2 Translation into the Functional Currency (Remeasurement from a Foreign Currency 
+Financial Statements to the Functional Currency) 
+10.3 Restatement of Financial Statements (Functional Currency of a Hyperinflationary 
+Economy) 
+ 
+11.0 Not-for-Profit Organizations 
+11.1 Voluntary health and welfare organizations (VHWO) 
+11.2 Hospitals and other health care organizations 
+11.3 Colleges and Universities 
+11.4 Other not-for-profit organizations such as churches, museums, fraternity, 
+association, etc. 
+ 
+12.0 Government Accounting – General Fund 
+12.1 Basic Concepts in Government Accounting 
+12.2 Budget Process 
+12.3 Government Accounting Manual (GAM) 
+12.4 Journal Entries – Books of National Government Agency 
+ 
+13.0 Cost Accounting 
+13.1 System of Cost Accumulation or Costing System
+8 
+ 
+13.1.1   Comparison between Actual Costing, Normal Costing and Standard Costing 
+13.2 Job-order Costing System 
+13.2.1 Journal Entries 
+13.2.2 Preparation of Statement of Goods Manufactured and Sold 
+13.2.3 Accounting for scrap, waste, spoilage, and rework 
+13.2.4 Cost Accumulation Procedures – materials, labor and overhead 
+13.3 Process Costing System 
+13.3.1 Journal Entries 
+13.3.2 Preparation of Cost of Production Report 
+13.3.2.1 First-in, first-out method 
+13.3.2.2 Average method 
+13.3.3 Accounting for Lost Units 
+13.3.3.1 Normal lost units – end of process 
+13.3.3.2 Abnormal lost units 
+13.3.4 Cost accumulation procedures – materials, labor and overhead 
+13.4 Backflush Costing System (JIT System) 
+13.4.1 Journal Entries 
+13.4.2 Cost accumulation procedures – materials, labor and overhead 
+13.5 Activity-Based Costing System (ABC System) 
+13.5.1 Allocation of Costs:  Traditional Costing versus ABC System 
+13.5.2 Determination of Total Product Cost:  Traditional Costing versus ABC 
+System 
+13.5.3 Activity levels (unit-level, batch-level, product-level, and facility level), cost 
+pools and activity drivers 
+13.5.4 Determination of cost pool rates and application of overhead costs 
+13.6 Accounting for Joint and By-Products 
+13.6.1 Methods of allocating joint costs to products 
+13.6.1.1 Market (sales) Value Method 
+13.6.1.1.1    Market value at split-off point approach 
+13.6.1.1.2  Hypothetical market value approach or Approximated 
+net realizable value approach or Net realizable value 
+method 
+13.6.1.1.3    Average units (production output) method 
+13.6.1.1.4    Weighted average method 
+13.6.2 Methods of allocating joint costs to by-products 
+13.6.2.1 No joint costs allocated to by-products 
+13.6.2.2 With joint costs allocated to by-products 
+13.6.3 Treatment of by-products 
+13.7 Service Cost Allocation 
+13.7.1 Direct method 
+13.7.2 Step-down method 
+13.7.3 Reciprocal method 
+  
+14.0 Other Special Topics (Basic Knowledge) 
+14.1 Accounting for insurance contracts by insurers (PFRS 17) 
+14.1.1 Types of Insurance Contracts 
+14.1.2 Changes in Accounting Policies 
+14.1.3 Recognition and measurement of insurance and reinsurance contracts 
+14.2 Service Concession Arrangement – Accounting for Build, Operate & Transfer 
+(PFRIC 12) 
+14.2.1 Two Types of Service Concession Arrangement 
+14.2.1.1 Financial Asset 
+14.2.1.2 Intangible Asset
 
-Syllabus content not found.
+---
 
-## Auditing
+## MS (Pages 9-12)
 
-Auditing and Attestation Services and Auditing Practice. 
+9 
+ 
+ 
+ 
+ 
+ 
+ 
+THE LICENSURE EXAMINATION FOR CERTIFIED PUBLIC ACCOUNTANTS 
+(LECPA) SYLLABUS 
+MANAGEMENT SERVICES 
+ 
+Effective October 2022 Examination 
+ 
+The subject covers the candidates’ knowledge of the concepts, techniques, and methodology 
+applicable to management accounting and financial management. Candidates should know and 
+understand the role of information in accounting, finance, and economics and in the management 
+processes of planning, controlling and decision-making.  
+  
+The candidates must have a working knowledge to comply with the various management 
+accounting and finance management activities. 
+  
+The candidates must also be able to communicate effectively matters pertaining to the 
+management accounting and financial management.  
+  
+The knowledge of the candidates in the competencies cited above is that of an entry level 
+accountant who can address the fundamental requirements of the various parties that the 
+candidates will be interacting professionally in the future.  
+  
+New laws, standards and other issuances which are effective as of the date of the examination 
+shall supersede the related topic listed in the syllabus and will be included in the examination, 
+unless there is an advisory from the Board of Accountancy to the contrary.   
+ 
+The examination shall have seventy (70) multiple choice questions.  
+ 
+The syllabus for the subject is presented below. 
+ 
+1.0 Management Accounting 
+1.1 Objectives, role, and scope of management accounting 
+1.1.1 Basic management functions and concepts 
+1.1.2 Distinction among management accounting, cost accounting and     
+financial accounting 
+1.1.3 Roles and activities of controller and treasurer 
+1.1.4 International certifications in management accounting 
+1.1.5 Global trends in management accounting 
+1.2 Management accounting concepts and techniques for planning & control 
+1.2.1   Cost terms, concepts, and behavior 
+1.2.1.1   Nature and classification of costs 
+1.2.1.2 Analysis of cost behavior (variable, fixed, semi- variable/mixed, 
+step-cost) 
+1.2.1.3 Splitting mixed cost (high-low, scatter graph, least-squares 
+regressions) 
+1.2.1.4 Cost prediction techniques (correlation, regression analysis and 
+learning curves) 
+1.2.2  Cost-volume profit (CVP) analysis 
+1.2.2.1 Uses, assumptions and limitations of CVP analysis  
+1.2.2.2 Factors affecting profit 
+1.2.2.3 Breakeven point in unit sales and peso sales 
+1.2.2.4 Required selling price, unit sales and peso sales to achieve a 
+target profit 
+1.2.2.5 Sensitivity analysis (including indifference point in unit sales and 
+peso sales) 
+1.2.2.6 Use of sales mix in multi-product companies 
+1.2.2.7 Concepts of margin of safety and degree of operating leverage 
+1.2.2.8 Different scenarios using CVP analysis (indifference point, step 
+fixed, multiple drivers) 
+1.2.3 Standard costing and variance analysis 
+1.2.3.1 Journal entries
+10 
+ 
+1.2.3.2 Direct material variance (quantity, price usage, purchase price, 
+mix and yield) 
+1.2.3.3 Direct labor variance (efficiency, rate, mix and yield) 
+1.2.3.4 Factory overhead variance – two-way method (controllable and 
+volume); three-way method (spending, variable efficiency, and 
+volume); four-way method (variable spending, fixed spending, 
+variable efficiency, and volume) 
+1.2.4 Variable vs. Absorption Costing 
+1.2.4.1 Distinction between product cost and period cost 
+1.2.4.2 Inventory costs between variable costing and absorption costing 
+1.2.4.3 Nature and treatment of fixed factory overhead costs 
+1.2.4.4 Reconciliation of operating income under variable costing and 
+absorption costing 
+1.2.5 Financial planning and budgets 
+1.2.5.1 Definition and coverage of the budgeting process 
+1.2.5.2 Master budget and its components (operating and financial 
+budgets) 
+1.2.5.3 Types of budgets (static, flexible, zero-based, continuous) 
+1.2.5.4 Budget variance analysis (static and flexible) 
+1.3 Management accounting concepts and techniques for performance measurement 
+1.3.1 Responsibility accounting and transfer pricing 
+1.3.1.1 Concepts of decentralization, segment reporting, goal 
+congruence and motivation 
+1.3.1.2 Controllable and non-controllable costs, direct and common costs 
+1.3.1.3 Type of responsibility centers (cost, revenue, profit, and 
+investment centers) 
+1.3.1.4 Preparation of segmented income statement 
+1.3.1.5 Performance margin (manager vs. segment performance) 
+1.3.1.6 Return on investment (ROI), residual income and economic value 
+added (EVA) 
+1.3.1.7 Rational and need for transfer price 
+1.3.1.8 Transfer pricing schemes (minimum transfer price, market-based 
+transfer price, cost-based transfer price and negotiated price) 
+1.3.2 Balanced scorecard 
+1.3.2.1  Nature and perspectives of balanced scorecard 
+1.3.2.2 Financial and non-financial performance measures (productivity, 
+cycle efficiency and throughput measures) 
+1.4 Management Accounting Concepts and Techniques for Decision Making 
+1.4.1 Relevant costing and differential analysis 
+1.4.1.1 Definition and identification of relevant costs 
+1.4.1.2 Concept of opportunity costs 
+1.4.1.3 Approaches in analyzing alternatives in non-routing decisions 
+(total and differential) 
+1.4.1.4 Types of decisions (make or buy, accept, or reject special order, 
+continue or drop/shutdown, sell or process further, best product 
+combination, pricing decisions) 
+1.4.1.5  Probability analysis (expected value concept) 
+1.4.1.6  Decision tree diagram 
+1.4.1.7  Linear programming (graphic method; algebraic method) 
+ 
+2.0 Financial Management 
+2.1 Objectives and scope of financial management 
+2.1.1 Nature, purpose, and scope of financial management 
+2.1.2 Role of financial managers in investment, operating and financing decisions 
+2.2 Financial Management Concepts and Techniques for Planning, Control & Decision 
+Making 
+2.2.1 Financial statement analysis 
+2.2.1.1 Vertical analysis (common-size financial statements) 
+2.2.1.2 Horizontal analysis (trend percentages and index analysis) 
+2.2.1.3 Cash flow analysis (interpretation of cash flows including free 
+cash flow concept)
+11 
+ 
+2.2.1.4 Gross profit variance analysis (price, cost, and volume factors) 
+2.2.1.5 Financial ratios (liquidity, solvency, activity, profitability, growth, 
+and other ratios; Du Pont model) 
+2.2.1.6 Financial forecasting using additional funds needed (AFN) 
+2.2.2 Working capital management 
+2.2.2.1 Concepts and significance of working capital management 
+2.2.2.2 Working capital investment and financing policies (conservative, 
+aggressive and the hedging/moderate approach) 
+2.2.2.3 Cash and marketable securities management (cash conversion 
+cycle, optimal cash balance, collection and disbursement float, 
+cash management system) 
+2.2.2.4 Receivables management (average balance of and investment in 
+accounts receivable, incremental analysis and evaluation of 
+discount, collection, and credit policies) 
+2.2.2.5 Inventory management (carrying, ordering and stock-out costs, 
+inventory control system including EOQ model, safety stock, re-
+order point) 
+2.2.2.6 Sources of short-term funds (trade credit, bank loans, commercial 
+papers, receivable factoring credit lines and revolving credit) 
+2.2.2.7 Estimating cost of short-term funds (annual cost of trade credit, 
+effective and nominal annual rate of short-term funds) 
+2.2.3 Capital budgeting 
+2.2.3.1 Capital investment decision factors (net investment for decision 
+making, cost of capital, cash, and accrual net returns) 
+2.2.3.2 Non-discounted capital budgeting techniques (payback period, 
+accounting rate of return on original and average investment, bail-
+out payback, and payback reciprocal) 
+2.2.3.3 Discounted capital budgeting techniques (net present value, 
+internal rate of return, profitability index, equivalent annual 
+annuity, fisher rate/NPV point of difference) 
+2.2.3.4 Project screening, project ranking and capital rationing 
+(independent and mutually exclusive capital investment projects) 
+2.2.3.5 Sensitivity analysis (effects of changes in project cash flow, tax 
+rates and other assumptions) 
+2.2.4 Risks and leverage 
+2.2.4.1 Types of risks (business/operating, financing) 
+2.2.4.2 Measures of risks (coefficient of variation and standard deviation) 
+2.2.4.3 Degree of operating, financial and total leverage 
+2.2.5 Capital structure and long-term financing decision 
+2.2.5.1 Basic concepts and tools of capital structure management 
+2.2.5.2 Sources of intermediate and long-term financing (including hybrid 
+financing) 
+2.2.5.3 Cost of capital (cost of long-term debt, cost of preferred shares, 
+cost of equity, weighted average cost of capital, marginal cost of 
+capital) 
+2.2.6 Financial markets 
+2.2.6.1 Money markets 
+2.2.6.1.1 Types of money market instruments 
+2.2.6.2 Capital market 
+2.2.6.2.1 Fixed income market 
+2.2.6.2.1.1 Types/examples of fixed income 
+instruments 
+2.2.6.2.1.2   Basic valuation 
+2.2.6.2.2   Stock market 
+2.2.6.2.2.1   Types/examples of equity instruments 
+2.2.6.2.2.2   Basic valuation 
+ 
+3.0 Economic concepts essential to obtaining an understanding of entity’s business 
+and industry
+12 
+ 
+ 
+3.1 Macroeconomics (national economic issues and measures of economic 
+performance such as GDP, Business cycle; unemployment and inflation; fiscal and 
+monetary policies; international trade and foreign exchange rates) 
+ 
+3.2   Microeconomics (concept of and factors affecting supply; concept of and factors 
+affecting demand; market equilibrium; price elasticity of demand; market structure; 
+production and cost functions)
+
+---
+
+## Auditing (Pages 13-16)
+
+13 
+ 
+ 
+ 
+ 
+ 
+THE LICENSURE EXAMINATION FOR CERTIFIED PUBLIC ACCOUNTANTS 
+(LECPA) SYLLABUS  
+AUDITING 
+ 
+Effective October 2022 Examination 
+ 
+This subject covers the candidates’ knowledge of the principles and concepts of auditing and 
+attestation and the practical application of these principles and concepts. There shall be two 
+parts of this subject: Theory on Auditing and Attestation Services and Auditing Practice. 
  
 THEORY ON AUDITING AND ATTESTATION SERVICES 
 This part covers the candidates’ conceptual knowledge and understanding of auditing and 
@@ -65,7 +781,7 @@ The syllabus for the subject is presented below.
 1.0    Theory on Auditing and Attestation Services  
 1.1    Fundamentals of Auditing and Assurance Services 
 1.1.1 Introduction to assurance engagements 
-1.1.1.1   Nature, objective, and elements 
+1.1.1.1   Nature, objective, and elements
 14 
  
             1.1.1.2   Types of assurance engagements (audits, reviews,   
@@ -128,7 +844,7 @@ sufficient appropriate audit evidence
 1.5.1.4  Assessment of ongoing concern assumption 
 1.5.1.5  Obtaining client’s representation letter 
 1.5.1.6 Evaluating findings, formulating an opinion, and drafting the audit 
-report 
+report
 15 
  
 1.5.2 Post-audit responsibilities  
@@ -191,7 +907,7 @@ and attestation)
 2.1.3.5  Human resources 
 2.1.3.6  Engagement performance 
 2.1.3.7  Monitoring 
-2.1.3.8  Documentation of the System of Quality Management 
+2.1.3.8  Documentation of the System of Quality Management
 16 
  
 2.1.4 Regulatory requirements related to the practice, accreditation and regulation 
@@ -244,17 +960,12 @@ level
 2.4.4.1  Modifications to the auditor’s report 
 2.4.4.2  Emphasis of matter and other matter paragraphs 
 2.4.4.3  Comparative information 
-      2.4.5   Monitoring and closing the engagement 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+      2.4.5   Monitoring and closing the engagement
+
+---
+
+## RFBT (Pages 17-24)
+
 17 
  
 THE LICENSURE EXAMINATION FOR CERTIFIED PUBLIC ACCOUNTANTS 
@@ -317,7 +1028,7 @@ The syllabus for the subject is presented below.
 1.1.5  Nature and Effects of Obligations 
 1.1.5.1 Concurrent Obligations in obligations to give a 
 specific/determinate thing 
-1.1.5.2  Obligations to do or not to do 
+1.1.5.2  Obligations to do or not to do
 18 
  
 1.1.5.3  Remedies in case of non-performance 
@@ -380,7 +1091,7 @@ compensation, and novation
 1.4.4 Obligations and rights of mortgagor and mortgagee  
 1.4.5 Modes of extinguishment 
  
-2.0 Bouncing Checks  
+2.0 Bouncing Checks
 19 
  
 2.1   Requisites to be liable under BP 22 
@@ -443,7 +1154,7 @@ compensation, and novation
 6.4.4  Bid evaluation 
 6.4.5  Post-qualification 
 6.4.6  Award, implementation, and termination of the contract 
-6.5 Disclosure of relations 
+6.5 Disclosure of relations
 20 
  
 6.6 Alternative methods of procurement 
@@ -506,7 +1217,7 @@ existence
 7.2.7.2     Specific powers; theory of specific capacity 
 7.2.7.3   Power to extend or shorten corporate term 
 7.2.7.4   Power to increase or decrease capital stock or incur, create, 
-increase bonded indebtedness 
+increase bonded indebtedness
 21 
  
 7.2.7.5    Power to deny pre-emptive rights 
@@ -569,7 +1280,7 @@ business
 7.2.9.17.2    Who presides? 
 7.2.9.17.3    Quorum 
 7.2.9.17.4    Remote communication 
-7.2.9.17.5    Rule on abstention 
+7.2.9.17.5    Rule on abstention
 22 
  
 7.2.10 Capital affairs  
@@ -632,7 +1343,7 @@ may be allowed to sue (isolated transactions)
 7.2.16.3    Prohibition on fraud, manipulation, and insider trading 
 7.2.16.4    Protection of shareholder interests 
 7.2.17 Securities Regulation Code (SRC) Rule 68 
-7.2.17.1 General Financial Reporting requirements 
+7.2.17.1 General Financial Reporting requirements
 23 
  
 7.2.17.1.1  Application and definition of terms 
@@ -695,7 +1406,7 @@ statements
 8.4.8 Record keeping requirements 
 8.4.9 Safe Harbor 
 8.5 Intellectual Property Law (except provisions under Part 1)   
-8.5.1 Patents 
+8.5.1 Patents
 24 
  
 8.5.2 Trademark, Service Marks, and Trade Names 
@@ -749,16 +1460,12 @@ electronic documents
 8.10.7    Remittance of contributions 
 8.10.8    Method of collection and payment 
 8.10.9  Employment records and reports 
-8.10.10  Penal Clauses 
- 
- 
- 
- 
-                
- 
- 
- 
- 
+8.10.10  Penal Clauses
+
+---
+
+## Taxation (Pages 25-28)
+
 25 
  
 THE LICENSURE EXAMINATION FOR CERTIFIED PUBLIC ACCOUNTANTS 
@@ -811,11 +1518,7 @@ The examination shall have seventy (70) multiple choice questions.
  
 The syllabus for the subject is presented below. 
  
-1.0 Principles of
-
-## Taxation
-
-Taxation 
+1.0 Principles of Taxation 
 1.1 Nature, scope, classification, and essential characteristics 
 1.2 Principles of taxation 
 1.3 Tax evasion vs. tax avoidance 
@@ -823,7 +1526,7 @@ Taxation
 1.5 Double taxation 
 1.6 Legislation of tax laws 
 1.7 Impact of taxes in nation building 
-1.8 Ethical tax compliance and administration 
+1.8 Ethical tax compliance and administration
 26 
  
 1.9 Organization and functions of the Bureau of Internal Revenue, Local Government 
@@ -886,7 +1589,7 @@ manage tax liabilities
 5.1.2 Persons subject to value-added tax 
 5.1.3 Transactions subject to 12%, 0% and withholding VAT and/or exempt from 
 value-added tax 
-5.1.4 Sources of input tax 
+5.1.4 Sources of input tax
 27 
  
 5.1.5 Value-added tax payable or excess input tax credits and tax credits, if 
@@ -949,7 +1652,7 @@ incentives
 9.1.1 Income tax (5% GIT, ITH incentives, regular income tax) 
 9.1.2 Other tax incentives (VAT/OPT, excise tax, DST, local taxes) 
 9.2 Bases Conversion and Development Act (BCDA) for purposes of determining tax 
-liabilities and tax incentives 
+liabilities and tax incentives
 28 
  
  
@@ -973,7 +1676,4 @@ implications of various income items of non-residents, such as:
 9.5   Tax implications of transactions applying the tax rules and regulations, and sound tax 
 planning strategies within legal and ethical bounds to efficiently manage tax liabilities.
 
-## RFBT
-
-Syllabus content not found.
-
+---

@@ -1,10 +1,10 @@
-﻿## 2026-11-14 — Initial Fork from Bar Recitation Simulator (cpale-simulator)
-- Isolated Tauri bundle identifier (com.mateo.cpale_simulator), Cargo crate, and GitHub Actions workflows (uild-android.yml, uild-mac.yml, deploy-pages.yml).
+﻿## 2026-11-14 — Initial Fork from Bar Recitation Simulator (ph-cpale-recit)
+- Isolated Tauri bundle identifier (org.phcpalerecit.cpale_simulator), Cargo crate, and GitHub Actions workflows (uild-android.yml, uild-mac.yml, deploy-pages.yml).
 - Renamed local test harness to src/cpale-review-test.html (excluded via .gitignore).
 
 ---
-## 2026-11-14 — Initial Fork from Bar Recitation Simulator (cpale-simulator)
-- Isolated Tauri bundle identifier (com.mateo.cpale_simulator), Cargo crate, and GitHub Actions workflows (uild-android.yml, uild-mac.yml, deploy-pages.yml).
+## 2026-11-14 — Initial Fork from Bar Recitation Simulator (ph-cpale-recit)
+- Isolated Tauri bundle identifier (org.phcpalerecit.cpale_simulator), Cargo crate, and GitHub Actions workflows (uild-android.yml, uild-mac.yml, deploy-pages.yml).
 - Renamed local test harness to src/cpale-review-test.html (excluded via .gitignore).
 
 ---
@@ -3267,4 +3267,4 @@ This document chronicles the complete development history, architectural decisio
 - Fixed checkpoint cleanup: final batch completion now removes batch checkpoints, preventing stale resume prompts.
 
 
-\n- 2026-11-14: Converted to CPALE Review Simulator. Injected Official Syllabus, safe calculator, and T-Account scratchpad.\n
+\n- 2026-11-14: Converted to CPALE Review Simulator. Injected Official Syllabus, safe calculator, and T-Account scratchpad.\n\n- 2026-11-14: Full CPALE transformation. Syllabus 2-tier loader, MCQ engine, and Audit Tape calculator injected.\n\n- 2026-11-14: Full CPALE migration. Replaced Bar matrix with Board dimensions, overhauled prompts to BOA CPALE standards, and updated GitHub/Tauri URLs.\n\n- 2026-11-14: Full CPALE migration. Replaced Bar matrix with Board dimensions, overhauled AI prompts and terminology to BOA standards, and isolated URLs.\n
