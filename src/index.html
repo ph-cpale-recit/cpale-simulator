@@ -206,7 +206,7 @@
 
         <div class="flex items-center justify-between mb-2">
           <label id="answerPadLabel" for="studentAnswer" class="text-sm font-semibold tracking-wide text-slate-300 uppercase">
-            Recitation Answer Pad (Polymorphic: ALAC · FIR · Codal)
+            CPALE Board Q&amp;A &amp; Computation Pad (MCQ A–D · Journal Entries · Tax/RFBT)
           </label>
           <div class="flex items-center space-x-2">
             <button id="editCurrentCardBtn" type="button" onclick="editActiveCardInPlace(false)" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-amber-300 px-2.5 py-0.5 rounded border border-amber-700/70 font-mono font-semibold transition cursor-pointer flex items-center space-x-1" title="Edit this card's prompt, citations, or model answers in place without losing your active recitation session (Press Ctrl+E)">
@@ -219,7 +219,7 @@
 
         <textarea
           id="studentAnswer"
-          placeholder="Deliver your recitation based on the active card dimension:&#10;• Codal Card: State the governing rule, enumerate the essential requisites, and cite the statutory exceptions.&#10;• Case FIR Card: State the material operative facts, the precise legal issue, and the Supreme Court's ruling & ratio decidendi.&#10;• Comparative / Hypothetical Card: State your categorical conclusion, cite the legal basis, and apply it strictly to the problem..."
+          placeholder="Select your CPALE Board MCQ answer (A, B, C, or D) and show your supporting peso computation or rule rationale:&#10;• Codal Card: State the governing rule, enumerate the essential requisites, and cite the statutory exceptions.&#10;• Case FIR Card: State the material operative facts, the precise legal issue, and the Supreme Court's ruling & ratio decidendi.&#10;• Comparative / Hypothetical Card: State your categorical conclusion, cite the legal basis, and apply it strictly to the problem..."
           class="w-full flex-1 min-h-[260px] bg-slate-950/90 border border-slate-800 focus:border-amber-500 rounded-lg p-4 text-slate-200 font-sans leading-relaxed focus:outline-none focus:ring-1 focus:ring-amber-500 resize-none transition"
           oninput="updateWordCount()"
           onkeydown="handleAnswerKeyDown(event)"
@@ -549,7 +549,7 @@
           <span class="w-8 h-8 rounded bg-amber-600 flex items-center justify-center font-serif font-bold text-slate-950 text-base shadow">✏️</span>
           <div>
             <h2 id="cardCreatorModalTitle" class="font-serif font-bold text-slate-100 text-base">Custom Flashcard Studio</h2>
-            <p class="text-[11px] text-slate-400 font-mono">5 Legal Archetypes · Dynamic Deck Routing · In-Place Editing</p>
+            <p class="text-[11px] text-slate-400 font-mono">CPALE Board Archetypes · Dynamic Deck Routing · In-Place Editing</p>
           </div>
         </div>
         <button type="button" onclick="closeCardCreatorModal()" class="text-slate-400 hover:text-slate-200 text-xl leading-none">&times;</button>
@@ -586,19 +586,19 @@
             <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1.5">Recitation Archetype:</label>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
               <button type="button" id="archBtn_CODAL" onclick="setCardArchetype('CODAL')" class="p-2 rounded-lg border border-amber-600 bg-amber-950/40 text-amber-300 font-mono font-bold text-left transition shadow">
-                § Codal & Statutory
+                🧮 Computational MCQ
               </button>
               <button type="button" id="archBtn_CASE" onclick="setCardArchetype('CASE')" class="p-2 rounded-lg border border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 font-mono font-bold text-left transition">
-                ⚖️ Case Brief (FIR)
+                📒 Journal Entry & FS
               </button>
               <button type="button" id="archBtn_ALAC" onclick="setCardArchetype('ALAC')" class="p-2 rounded-lg border border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 font-mono font-bold text-left transition">
-                ◈ Bar ALAC Hypothetical
+                ⚖️ Tax / RFBT Problem
               </button>
               <button type="button" id="archBtn_PROCEDURAL" onclick="setCardArchetype('PROCEDURAL')" class="p-2 rounded-lg border border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 font-mono font-bold text-left transition">
-                🛡️ Procedural Defense / Bar
+                🔍 Audit & Controls
               </button>
               <button type="button" id="archBtn_SIMPLE" onclick="setCardArchetype('SIMPLE')" class="p-2 rounded-lg border border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 font-mono font-bold text-left transition">
-                ⚡ Simple Front / Back
+                ⚡ Concept / Standard Q&A
               </button>
             </div>
           </div>
@@ -854,7 +854,7 @@
       <div class="flex items-center space-x-3">
         <span class="w-8 h-8 rounded bg-amber-600 flex items-center justify-center font-serif font-bold text-slate-950 text-base shadow">CPA</span>
         <div>
-          <h2 class="font-serif font-bold text-slate-100 text-base">Bar Recitation Simulator — Video Tutorial & Orientation</h2>
+          <h2 class="font-serif font-bold text-slate-100 text-base">CPALE Review Simulator — Video Tutorial &amp; Orientation</h2>
           <p class="text-[11px] text-slate-400 font-mono">1-Minute Quick Start · Universal Hybrid Engine</p>
         </div>
       </div>
@@ -946,7 +946,7 @@
         <span class="w-8 h-8 rounded bg-amber-600 flex items-center justify-center font-serif font-bold text-slate-950 text-base shadow">CPA</span>
         <div>
           <h2 class="font-serif font-bold text-slate-100 text-base">Quick-Start & Complete Architecture Guide</h2>
-          <p class="text-[11px] text-slate-400 font-mono">Philippine Bar Recitation Simulator · Universal Hybrid Engine</p>
+          <p class="text-[11px] text-slate-400 font-mono">Philippine CPALE Board Review Simulator · Universal Hybrid Engine</p>
         </div>
       </div>
       <button onclick="toggleModal('tutorialModal')" class="text-slate-400 hover:text-slate-200 text-xl leading-none">&times;</button>
@@ -1271,48 +1271,58 @@
           <div class="flex items-center justify-between flex-wrap gap-2">
             <span class="text-xs font-mono uppercase text-emerald-400 font-bold flex items-center space-x-1.5">
               <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-              <span>Recitation Mode Presets & 10-Dimension Tailoring Matrix</span>
+              <span>CPALE Board Exam Presets &amp; 6-Archetype Tailoring Matrix</span>
             </span>
             <span id="activeDimCountBadge" class="text-[10px] font-mono bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800 font-bold">
               6 of 6 Archetypes Active
             </span>
           </div>
 
-          <!-- PRESET PROFILE BUTTONS -->
-          <div id="presetsGridContainer" class="grid grid-cols-2 md:grid-cols-4 gap-2">
-            <button type="button" id="presetBtn_CODAL" onclick="applyDimensionPreset('CODAL')" class="px-3 py-2 rounded-lg text-xs font-mono font-bold border border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-500/60 transition text-left">
-              <span class="block text-amber-400">§ Codal Mode</span>
-              <span class="text-[10px] text-slate-400 font-normal">Defs, Requisites & Exceptions (1–3)</span>
+          <div id="presetsGridContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <button type="button" id="presetBtn_CODAL" onclick="applyDimensionPreset('CODAL')" class="text-left p-3 rounded-xl bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 transition">
+              <div class="text-amber-400 font-mono font-bold text-xs mb-1">&#129518; Computational MCQs</div>
+              <div class="text-[11px] text-slate-400 leading-snug">Situational Schedules &amp; Formulas (1–2)</div>
             </button>
-            <button type="button" id="presetBtn_CASE" onclick="applyDimensionPreset('CASE')" class="px-3 py-2 rounded-lg text-xs font-mono font-bold border border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-500/60 transition text-left">
-              <span class="block text-sky-400">⚖️ Case FIR Mode</span>
-              <span class="text-[10px] text-slate-400 font-normal">Facts, Ratio, Full FIR & Pairs (5–8)</span>
+            <button type="button" id="presetBtn_CASE" onclick="applyDimensionPreset('CASE')" class="text-left p-3 rounded-xl bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 transition">
+              <div class="text-sky-400 font-mono font-bold text-xs mb-1">&#128214; Theory &amp; Standards</div>
+              <div class="text-[11px] text-slate-400 leading-snug">PFRS, PSA, NIRC &amp; Statement Traps (3–4)</div>
             </button>
-            <button type="button" id="presetBtn_REVIEWER" onclick="applyDimensionPreset('REVIEWER')" class="px-3 py-2 rounded-lg text-xs font-mono font-bold border border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-500/60 transition text-left">
-              <span class="block text-emerald-400">◈ Reviewer Mode</span>
-              <span class="text-[10px] text-slate-400 font-normal">Concepts, Distinctions & ALAC (1,4,9,10)</span>
+            <button type="button" id="presetBtn_REVIEWER" onclick="applyDimensionPreset('REVIEWER')" class="text-left p-3 rounded-xl bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 transition">
+              <div class="text-emerald-400 font-mono font-bold text-xs mb-1">&#9878; Audit &amp; Caselets</div>
+              <div class="text-[11px] text-slate-400 leading-snug">Procedures, Opinions &amp; Legal Cases (5–6)</div>
             </button>
-            <button type="button" id="presetBtn_ALL" onclick="applyDimensionPreset('ALL')" class="px-3 py-2 rounded-lg text-xs font-mono font-bold border border-emerald-600 bg-emerald-950/40 text-emerald-200 transition text-left shadow">
-              <span class="block text-emerald-300">★ Full Bar Sim</span>
-              <span class="text-[10px] text-emerald-400/80 font-normal">All 10 Recitation Dimensions</span>
+            <button type="button" id="presetBtn_ALL" onclick="applyDimensionPreset('ALL')" class="text-left p-3 rounded-xl bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-600/70 transition">
+              <div class="text-emerald-300 font-mono font-bold text-xs mb-1">&#9733; Full Board Sim</div>
+              <div class="text-[11px] text-emerald-400/90 leading-snug">All 6 PRC-BOA CPALE MCQ Styles</div>
             </button>
           </div>
 
-          <!-- GRANULAR 10-DIMENSION CHECKBOX GRID -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-3">
-        <button type="button" onclick="applyPresetProfile('CODAL')" class="text-left p-3 rounded-xl bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 transition"><div class="text-amber-400 font-mono font-bold text-xs mb-1">&#129518; MCQ Drills</div><div class="text-[11px] text-slate-400 leading-snug">Computational &amp; Theory Traps (1-2)</div></button>
-        <button type="button" onclick="applyPresetProfile('CASE')" class="text-left p-3 rounded-xl bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 transition"><div class="text-sky-400 font-mono font-bold text-xs mb-1">&#128210; Accounting &amp; FS</div><div class="text-[11px] text-slate-400 leading-snug">Journal Entries &amp; Presentation (3-4)</div></button>
-        <button type="button" onclick="applyPresetProfile('REVIEWER')" class="text-left p-3 rounded-xl bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 transition"><div class="text-emerald-400 font-mono font-bold text-xs mb-1">&#9878; Tax &amp; RFBT</div><div class="text-[11px] text-slate-400 leading-snug">NIRC/CREATE/EOPT &amp; Commercial Law (5-6)</div></button>
-        <button type="button" onclick="applyPresetProfile('ALL')" class="text-left p-3 rounded-xl bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-600/70 transition"><div class="text-emerald-300 font-mono font-bold text-xs mb-1">&#9733; Full Board Sim</div><div class="text-[11px] text-emerald-400/90 leading-snug">All 6 CPALE Board Archetypes</div></button>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-        <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer"><input type="checkbox" class="dim-checkbox mt-0.5 accent-amber-500" value="1" checked onchange="syncDimensionCheckboxes()" /><div><div class="text-xs font-mono font-bold text-amber-400">1. Board MCQ: Computational Problem</div><div class="text-[11px] text-slate-400">Step-by-step peso schedule &amp; A/B/C/D board options</div></div></label>
-        <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer"><input type="checkbox" class="dim-checkbox mt-0.5 accent-amber-500" value="2" checked onchange="syncDimensionCheckboxes()" /><div><div class="text-xs font-mono font-bold text-amber-400">2. Board MCQ: Conceptual &amp; Standard Trap</div><div class="text-[11px] text-slate-400">PFRS/PAS, PSA, NIRC, or RFBT rule &amp; distractor elimination</div></div></label>
-        <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer"><input type="checkbox" class="dim-checkbox mt-0.5 accent-sky-500" value="3" checked onchange="syncDimensionCheckboxes()" /><div><div class="text-xs font-mono font-bold text-sky-400">3. Journal Entries &amp; Measurement (PFRS/PAS)</div><div class="text-[11px] text-slate-400">Initial/subsequent recognition, debits/credits &amp; carrying amounts</div></div></label>
-        <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer"><input type="checkbox" class="dim-checkbox mt-0.5 accent-emerald-500" value="4" checked onchange="syncDimensionCheckboxes()" /><div><div class="text-xs font-mono font-bold text-emerald-400">4. FS Presentation, Classification &amp; Disclosure</div><div class="text-[11px] text-slate-400">Current vs. Non-Current, OCI vs. P&amp;L &amp; mandatory note disclosures</div></div></label>
-        <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer"><input type="checkbox" class="dim-checkbox mt-0.5 accent-sky-500" value="5" checked onchange="syncDimensionCheckboxes()" /><div><div class="text-xs font-mono font-bold text-sky-400">5. Tax Due, Credit &amp; Withholding Schedule</div><div class="text-[11px] text-slate-400">NIRC / TRAIN / CREATE / EOPT tax bases, rates &amp; credits</div></div></label>
-        <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer"><input type="checkbox" class="dim-checkbox mt-0.5 accent-emerald-500" value="6" checked onchange="syncDimensionCheckboxes()" /><div><div class="text-xs font-mono font-bold text-emerald-400">6. RFBT Statutory Requisites &amp; Periods</div><div class="text-[11px] text-slate-400">Civil Code, RA 11232 (RCC), Negotiable Instruments &amp; Special Laws</div></div></label>
-      </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer">
+              <input type="checkbox" id="dimCheck_1" class="dim-checkbox mt-0.5 accent-amber-500" value="1" checked onchange="onDimensionCheckboxChanged()" />
+              <div><div class="text-xs font-mono font-bold text-amber-400">1. Situational Computational Problem</div><div class="text-[11px] text-slate-400">Multi-step peso schedule &amp; A/B/C/D board options (FAR, AFAR, MS, Audit, Tax)</div></div>
+            </label>
+            <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer">
+              <input type="checkbox" id="dimCheck_2" class="dim-checkbox mt-0.5 accent-amber-500" value="2" checked onchange="onDimensionCheckboxChanged()" />
+              <div><div class="text-xs font-mono font-bold text-amber-400">2. Formula, Variance &amp; Ratio Drill</div><div class="text-[11px] text-slate-400">CVP, standard variances, NPV/IRR, tax rates &amp; financial ratios</div></div>
+            </label>
+            <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer">
+              <input type="checkbox" id="dimCheck_3" class="dim-checkbox mt-0.5 accent-sky-500" value="3" checked onchange="onDimensionCheckboxChanged()" />
+              <div><div class="text-xs font-mono font-bold text-sky-400">3. Theory MCQ &amp; Statement I / II Trap</div><div class="text-[11px] text-slate-400">PFRS/PAS, PSA, NIRC, or RFBT rules, exceptions &amp; distractor elimination</div></div>
+            </label>
+            <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer">
+              <input type="checkbox" id="dimCheck_4" class="dim-checkbox mt-0.5 accent-sky-500" value="4" checked onchange="onDimensionCheckboxChanged()" />
+              <div><div class="text-xs font-mono font-bold text-sky-400">4. Journal Entry, Account &amp; FS Effect</div><div class="text-[11px] text-slate-400">Debits/credits, measurement basis &amp; Current vs. Non-Current classification</div></div>
+            </label>
+            <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer">
+              <input type="checkbox" id="dimCheck_5" class="dim-checkbox mt-0.5 accent-emerald-500" value="5" checked onchange="onDimensionCheckboxChanged()" />
+              <div><div class="text-xs font-mono font-bold text-emerald-400">5. Audit Procedures, Evidence &amp; Opinion</div><div class="text-[11px] text-slate-400">Assertions, substantive tests, internal controls &amp; report modification</div></div>
+            </label>
+            <label class="flex items-start space-x-2.5 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 cursor-pointer">
+              <input type="checkbox" id="dimCheck_6" class="dim-checkbox mt-0.5 accent-emerald-500" value="6" checked onchange="onDimensionCheckboxChanged()" />
+              <div><div class="text-xs font-mono font-bold text-emerald-400">6. Statutory Requisites &amp; Legal/Tax Caselet</div><div class="text-[11px] text-slate-400">NIRC/CREATE/EOPT deadlines &amp; thresholds, Civil Code, RCC &amp; Special Laws</div></div>
+            </label>
+          </div>
         </div>
 
         <!-- ANCHOR 1: COURSE SYLLABUS & MANDATORY COVERAGE SCOPE -->
@@ -1367,7 +1377,7 @@
         <div class="bg-slate-950/70 p-4 rounded-xl border border-sky-800/40 space-y-3">
           <div class="flex items-center justify-between">
             <label class="block text-xs font-mono uppercase text-sky-400 font-bold">
-              Anchor 2: Reference Sources Library — Codals, Case Digests & Reviewers (<span id="sourceCountBadge" class="text-amber-300">0</span>)
+              Anchor 2: Reference Sources Library — PFRS/PAS, Reviewers &amp; Tax/RFBT Notes (<span id="sourceCountBadge" class="text-amber-300">0</span>)
             </label>
             <div class="flex items-center space-x-3">
               <button onclick="reparseLoadedSources()" type="button" class="text-xs text-amber-400 hover:underline font-mono">Re-Index Sources</button>
@@ -1380,7 +1390,7 @@
               <input type="file" id="multiFileInput" accept="application/pdf,.txt,.md" multiple class="hidden" onchange="handleUnifiedSourceUpload(event)" />
               <svg class="w-6 h-6 text-sky-400 mb-1 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               <span class="text-xs text-slate-200 font-semibold">Attach Reference PDFs or Texts (PFRS/PAS, Reviewers, Tax/RFBT Notes)</span>
-              <span class="text-[10px] text-slate-500 mt-0.5">Auto-Detects & Indexes Case Digests (G.R./Phonetic), Codal Provisions & Reviewer Chunks</span>
+              <span class="text-[10px] text-slate-500 mt-0.5">Auto-Detects &amp; Indexes PFRS/PAS Standards, NIRC Provisions, Audit Standards &amp; Reviewer Notes</span>
             </button>
 
             <button type="button" onclick="document.getElementById('folderInput').click()" class="border-2 border-dashed border-slate-800 hover:border-sky-500 bg-slate-900/60 p-3.5 rounded-lg flex flex-col items-center justify-center text-center transition group">
@@ -1429,7 +1439,7 @@
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono uppercase text-amber-400 font-bold flex items-center space-x-1.5">
               <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-              <span>Subject Weak-Spot Ledger (Codals · Cases · Doctrines)</span>
+              <span>Subject Weak-Spot Ledger (MCQs · Standards · Computations)</span>
             </span>
             <button onclick="resetSubjectMastery()" type="button" class="text-[11px] text-red-400 hover:underline font-mono">Reset Subject Ledger</button>
           </div>
@@ -1758,7 +1768,7 @@
       // Repurposed to open setup modal directly to Sync tab
       toggleModal('setupModal');
     }
-    let currentSubjectName = localStorage.getItem('bar_active_subject') || 'Evidence';
+    let currentSubjectName = localStorage.getItem('bar_active_subject') || 'FAR';
     const DB_NAME = 'BarRecitUniversalMasterDB_v14_1';
     const DB_VERSION = 141;
     let db;
@@ -1903,10 +1913,10 @@
     };
 
     const PRESET_PROFILES = {
-      CODAL: { name: "Codal Mode (1–3)", dims: [1, 2, 3] },
-      CASE: { name: "Case FIR Mode (5–8)", dims: [5, 6, 7, 8] },
-      REVIEWER: { name: "Reviewer Mode (1,4,9,10)", dims: [1, 4, 9, 10] },
-      ALL: { name: "Full Board Sim (6/6)", dims: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
+      CODAL: { name: "Computational MCQs (1–2)", dims: [1, 2] },
+      CASE: { name: "Theory & Standards (3–4)", dims: [3, 4] },
+      REVIEWER: { name: "Audit & Caselets (5–6)", dims: [5, 6] },
+      ALL: { name: "Full Board Sim (6/6)", dims: [1, 2, 3, 4, 5, 6] }
     };
 
     // ---------------------------------------------------------------------------
@@ -2954,7 +2964,7 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
       state.activePreset = presetKey;
       state.activeDimensions = [...profile.dims];
 
-      for (let i = 1; i <= 10; i++) {
+      for (let i = 1; i <= 6; i++) {
         const cb = document.getElementById('dimCheck_' + i);
         if (cb) cb.checked = state.activeDimensions.includes(i);
       }
@@ -2970,7 +2980,7 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
     }
 
     function syncDimensionCheckboxesToState() {
-      for (let i = 1; i <= 10; i++) {
+      for (let i = 1; i <= 6; i++) {
         const cb = document.getElementById('dimCheck_' + i);
         if (cb) cb.checked = state.activeDimensions.includes(i);
       }
@@ -2979,7 +2989,7 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
 
     function onDimensionCheckboxChanged() {
       const checked = [];
-      for (let i = 1; i <= 10; i++) {
+      for (let i = 1; i <= 6; i++) {
         const cb = document.getElementById('dimCheck_' + i);
         if (cb && cb.checked) checked.push(i);
       }
@@ -3012,11 +3022,11 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
       const headerLabel = document.getElementById('activePresetHeaderLabel');
 
       const count = state.activeDimensions.length;
-      if (countBadge) countBadge.innerText = `${count} of 10 Dimensions Active`;
+      if (countBadge) countBadge.innerText = `${count} of 6 Archetypes Active`;
 
       const presetName = PRESET_PROFILES[state.activePreset]
         ? PRESET_PROFILES[state.activePreset].name
-        : `Custom Matrix (${count}/10)`;
+        : `Custom Matrix (${count}/6)`;
       if (headerLabel) headerLabel.innerText = presetName;
 
       ['CODAL', 'CASE', 'REVIEWER', 'ALL'].forEach(key => {
@@ -4678,15 +4688,15 @@ TASK:
         let atomicDirective = "";
         if (dimObj.id === 1) {
           atomicDirective = `[ATOMIC DIMENSION 1 — LEGAL DEFINITION, NATURE & POLICY ONLY]:
-Formulate a sharp, single-focus question asking the student ONLY to define "${cleanTopicName}" (${item.rule_citation || ''}), state its verbatim statutory rule/nature, and explain the underlying legal policy behind it.
+Formulate a realistic Philippine CPALE Board Exam Multiple-Choice Question (complete with 4 distinct choices: A., B., C., and D., plus a step-by-step peso computation or standard rationale in the benchmark) asking the candidate to analyze "${cleanTopicName}" (${item.rule_citation || ''}), state its verbatim statutory rule/nature, and explain the underlying legal policy behind it.
 STRICT PROHIBITION: DO NOT ask the student to enumerate requisites or list exceptions in this question! Keep the question strictly focused on Definition, Nature, and Policy.`;
         } else if (dimObj.id === 2) {
           atomicDirective = `[ATOMIC DIMENSION 2 — ESSENTIAL ELEMENTS & NUMBERED REQUISITES ONLY]:
-Formulate a sharp, single-focus question commanding the student ONLY to enumerate the mandatory statutory and doctrinal elements/requisites of "${cleanTopicName}" (${item.rule_citation || ''}).
+Formulate a realistic Philippine CPALE Board Exam Multiple-Choice Question (complete with 4 distinct choices: A., B., C., and D., including Statement I / Statement II true-false traps where appropriate) testing the mandatory statutory and doctrinal elements/requisites of "${cleanTopicName}" (${item.rule_citation || ''}).
 STRICT PROHIBITION: DO NOT ask the student to define the concept or list its exceptions in this question! Demand ONLY the numbered enumeration of essential elements/requisites.`;
         } else {
           atomicDirective = `[ATOMIC DIMENSION 3 — STATUTORY PROVISOS & JURISPRUDENTIAL EXCEPTIONS ONLY]:
-Formulate a sharp, single-focus question interrogating the student EXCLUSIVELY on the recognized exceptions, negative qualifications, express statutory provisos, and landmark Supreme Court case-law exceptions to "${cleanTopicName}" (${item.rule_citation || ''}).
+Formulate a realistic Philippine CPALE Board Exam Multiple-Choice Question (complete with 4 distinct choices: A., B., C., and D.) testing exceptions, journal entry effects, or procedural/statutory rules on the recognized exceptions, negative qualifications, express statutory provisos, and landmark Supreme Court case-law exceptions to "${cleanTopicName}" (${item.rule_citation || ''}).
 STRICT PROHIBITION: DO NOT ask for the general definition or standard elements! Ask ONLY for the statutory exceptions/provisos and jurisprudential exceptions/qualifications.`;
         }
 
@@ -4751,7 +4761,7 @@ CRITICAL ANTI-TRUNCATION MANDATE (PHASE 6):
       if (dimObj.id === 4) {
         reviewerDirective = `Demand a structured point-by-point doctrinal distinction contrasting "${cleanTopicName}" with its closest legal counterpart under Philippine law. In p3_analysis, write structured comparative paragraphs (DO NOT use Markdown tables).`;
       } else if (dimObj.id === 9) {
-        reviewerDirective = `Present a realistic Philippine Bar Examination problem scenario testing "${cleanTopicName}" (${item.rule_citation || ''}). Require a comprehensive 4-part ALAC resolution.`;
+        reviewerDirective = `Present a realistic Philippine CPALE Board Examination situational MCQ (complete with 4 distinct choices: A., B., C., and D.) testing "${cleanTopicName}" (${item.rule_citation || ''}). Require a comprehensive 4-part ALAC resolution.`;
       } else {
         reviewerDirective = `Interrogate strictly on the proper procedural remedy, vehicle, prescriptive period, waiver effect, or jurisdictional bar governing "${cleanTopicName}" (${item.rule_citation || ''}).`;
       }
@@ -4923,7 +4933,7 @@ In benchmark_alac:
       const ansPad = document.getElementById('studentAnswer');
       const ansLabel = document.getElementById('answerPadLabel');
       if (ansPad && dimObj.placeholder) ansPad.placeholder = dimObj.placeholder;
-      if (ansLabel) ansLabel.innerText = `Recitation Answer Pad — ${dimObj.shortTag}`;
+      if (ansLabel) ansLabel.innerText = `CPALE Board Answer Pad — ${dimObj.shortTag}`;
 
       const concNote = checkConcordanceNote(currentItem.baseTopic || currentItem.topic) || checkConcordanceNote(currentItem.rule_citation);
       const concBox = document.getElementById('concordanceAlertBox');
