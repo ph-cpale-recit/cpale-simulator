@@ -2367,6 +2367,7 @@
         .replace(/\[\s*Active Recall Cloze Enhanced:[^\]]*\]/gi, '')
         .replace(/\(\s*Active Recall Cloze Enhanced:[^\)]*\)/gi, '')
         .replace(/\[\s*(?:Note|Instruction|Directive|Prompt Tag):[^\]]*\]/gi, '')
+        .replace(/---\s*MASHED ADDITION\s*---/gi, '\n\n')
         .replace(/\n\s*\n\s*\n+/g, '\n\n')
         .trim();
     }
@@ -2376,6 +2377,7 @@
       return text
         .replace(/\[\s*Active Recall Cloze Enhanced:[^\]]*\]/gi, '')
         .replace(/\(\s*Active Recall Cloze Enhanced:[^\)]*\)/gi, '')
+        .replace(/---\s*MASHED ADDITION\s*---/gi, '\n\n')
         .replace(/\[\s*(?:Note|Instruction|Directive|Prompt Tag):[^\]]*\]/gi, '')
         .replace(/\n\s*\n\s*\n+/g, '\n\n')
         .trim();
@@ -6086,6 +6088,242 @@ function extractCardParagraphsForExport(c) {
       document.getElementById('deckPolishModal')?.classList.add('hidden');
       activePolishDeckId = null;
       flaggedDuplicates = [];
+    }
+
+    // ---------------------------------------------------------------------------
+    // CARD SIMILARITY & MASHING HELPERS
+    // ---------------------------------------------------------------------------
+    const SIMILARITY_THRESHOLD = 0.85;
+    const MASH_FIELDS = [
+        'benchmark_codal_breakdown', 'benchmark_fir', 'benchmark_alac', 'benchmark_comparative',
+        'governing_rule', 'distractor_rationale', 'solution_breakdown', 'formula_breakdown',
+        'choice_a', 'choice_b', 'choice_c', 'choice_d'
+    ];
+
+    // Extract section/article number from text
+    function extractSectionNumber(text) {
+      if (!text) return null;
+      const match = text.match(/(?:Section|Sec\.|Article|Art\.)\s*(\d+)/i);
+      return match ? match[1] : null;
+    }
+
+    // Extract rule reference from text
+    function extractRuleReference(text) {
+      if (!text) return null;
+      const match = text.match(/(Rule\s+\d+|R\.A\.\s*\d+)/i);
+      return match ? match[0] : null;
+    }
+
+    // Card signature includes section/article to prevent cross-section collisions
+    function cardSignature(card) {
+      const rawTopic = (card.baseTopic || card.topic || card.case_title || '').trim();
+      const rawPrompt = card.question_text || card.question || '';
+      const dimId = card.dimensionId || card.forcedDimensionId || 'general';
+
+      // Extract section/article from topic and prompt
+      const sectionFromTopic = extractSectionNumber(rawTopic);
+      const sectionFromPrompt = extractSectionNumber(rawPrompt);
+      const section = sectionFromTopic || sectionFromPrompt;
+
+      // Build signature with section if present
+      const topicPart = rawTopic.trim().toLowerCase();
+      const sigBase = section ? `${topicPart}::section_${section}` : topicPart;
+
+      // For dimension 9 (hypotheticals) or ALAC, include prompt similarity requirement
+      const schemaType = card.schemaType;
+      if (dimId === 9 || schemaType === 'ALAC' ||
+          (rawPrompt && (rawPrompt.startsWith('During the trial') ||
+                         rawPrompt.startsWith('A filed') ||
+                         rawPrompt.startsWith('Suppose') ||
+                         rawPrompt.match(/^[A-Z] and [A-Z]/) ||
+                         rawPrompt.match(/Dim 9/i)))) {
+        return `${sigBase}::hypothetical_dim_${dimId}`;
+      }
+
+      return `${sigBase}::dim_${dimId}`;
+    }
+
+    // Token-based similarity calculation
+    function cardTokenSimilarity(a, b) {
+      const ta = (a || '').toLowerCase().replace(/[^a-z0-9]/g, ' ').split(/\s+/).filter(Boolean);
+      const tb = (b || '').toLowerCase().replace(/[^a-z0-9]/g, ' ').split(/\s+/).filter(Boolean);
+      if (ta.length === 0 || tb.length === 0) return 0;
+      const setB = new Set(tb);
+      let intersect = 0;
+      ta.forEach(t => { if (setB.has(t)) intersect++; });
+      return intersect / Math.max(ta.length, tb.length);
+    }
+
+    // Merge two cards' content, avoiding MASHED ADDITION markers
+    function mergeField(a, b) {
+      if (!a) return b;
+      if (!b) return a;
+      if (typeof a === 'string' && typeof b === 'string') {
+        // Strip existing MASHED ADDITION markers
+        const cleanA = a.replace(/---\s*MASHED ADDITION\s*---/gi, '').replace(/\n\s*\n/g, '\n').trim();
+        const cleanB = b.replace(/---\s*MASHED ADDITION\s*---/gi, '').replace(/\n\s*\n/g, '\n').trim();
+
+        if (cleanA === cleanB) return cleanA;
+        if (cleanA.includes(cleanB) && cleanB.length > 0) return cleanA;
+        if (cleanB.includes(cleanA) && cleanA.length > 0) return cleanB;
+
+        // Use longer text, join with double newline
+        return cleanA.length >= cleanB.length ? cleanA + '\n\n' + cleanB : cleanB + '\n\n' + cleanA;
+      }
+      if (typeof a === 'object' && typeof b === 'object' && a && b) {
+        const merged = JSON.parse(JSON.stringify(a));
+        Object.keys(b).forEach(k => {
+          if (b[k] == null) return;
+          if (MASH_FIELDS.includes(k) || k === 'codal_provision_text') {
+            merged[k] = mergeField(merged[k], b[k]);
+          } else if (!(k in merged)) {
+            merged[k] = b[k];
+          }
+        });
+        return merged;
+      }
+      return a;
+    }
+
+    // Main card merge function
+    function mergeCards(survivor, donor) {
+      const merged = JSON.parse(JSON.stringify(survivor));
+      const qText = mergeField(survivor.question_text || survivor.question || '', donor.question_text || donor.question || '');
+      merged.question_text = qText;
+      if (!merged.question) merged.question = qText;
+
+      MASH_FIELDS.forEach(f => {
+        if (donor[f] != null) {
+          merged[f] = mergeField(merged[f], donor[f]);
+        }
+      });
+      if (donor.codal_provision_text) {
+        merged.codal_provision_text = mergeField(merged.codal_provision_text, donor.codal_provision_text);
+      }
+
+      // Metadata & flags
+      if (donor.topic && (!merged.topic || donor.topic.length > merged.topic.length)) merged.topic = donor.topic;
+      if (donor.case_title && (!merged.case_title || donor.case_title.length > merged.case_title.length)) merged.case_title = donor.case_title;
+      if (donor.citation && (!merged.citation || donor.citation.length > merged.citation.length)) merged.citation = donor.citation;
+      if (donor.isSuspended) merged.isSuspended = true;
+      if (donor.buriedUntil && (!merged.buriedUntil || donor.buriedUntil > merged.buriedUntil)) merged.buriedUntil = donor.buriedUntil;
+      if (donor.isGrounded) merged.isGrounded = true;
+
+      if (Array.isArray(donor.tags) && donor.tags.length) {
+        merged.tags = Array.from(new Set([...(merged.tags || []), ...donor.tags]));
+      }
+
+      if (!merged.mashedFrom) merged.mashedFrom = [];
+      if (survivor.mashedFrom) merged.mashedFrom.push(...survivor.mashedFrom);
+      if (donor.mashedFrom) merged.mashedFrom.push(...donor.mashedFrom);
+      else merged.mashedFrom.push({ index: donor._origIndex, reason: donor._mashReason || 'similar' });
+
+      merged._mashCount = (merged._mashCount || 1) + 1;
+      return merged;
+    }
+
+    // Main mashing pass - handles cross-section, cross-hypothetical collisions
+    function cardMashPass(cards, threshold = SIMILARITY_THRESHOLD) {
+      const survivors = [];
+      const mashed = [];
+      const seenSigs = new Map();
+      const cardSections = new Map(); // Track section per card for cross-section detection
+
+      const refreshSigPointers = (merged) => {
+        for (const [k, v] of seenSigs) {
+          if (v === merged._preMergeRef) seenSigs.set(k, merged);
+        }
+      };
+
+      cards.forEach((card, idx) => {
+        card._origIndex = idx;
+        const sig = cardSignature(card);
+        const promptText = card.question_text || card.question || '';
+        const cardSection = extractSectionNumber(promptText) || extractSectionNumber(card.topic || card.case_title || '');
+        const cardDimensionId = card.dimensionId || card.forcedDimensionId || 1;
+        const schemaType = card.schemaType;
+
+        // Detect if this is a hypothetical/problem card
+        const isHypothetical = cardDimensionId === 9 || schemaType === 'ALAC' ||
+          (promptText && (promptText.startsWith('During the trial') ||
+                         promptText.startsWith('A filed') ||
+                         promptText.startsWith('Suppose') ||
+                         promptText.match(/^[A-Z] and [A-Z]/) ||
+                         promptText.match(/Dim 9/i)));
+
+        let matched = null;
+        let matchReason = '';
+
+        if (seenSigs.has(sig)) {
+          matched = seenSigs.get(sig);
+
+          // Check for cross-section collision
+          const matchedSection = cardSections.get(matched._origIndex) || extractSectionNumber(matched.question_text || matched.question || '');
+          if (cardSection && matchedSection && cardSection !== matchedSection) {
+            matchReason = 'cross_section_collision';
+            matched = null;
+          }
+        }
+
+        // If no match by signature, check similarity
+        if (!matched) {
+          for (const [otherSig, cand] of seenSigs) {
+            const candSection = cardSections.get(cand._origIndex) || extractSectionNumber(cand.question_text || cand.question || '');
+
+            // Skip if sections differ
+            if (cardSection && candSection && cardSection !== candSection) {
+              continue;
+            }
+
+            // For hypotheticals, require higher similarity (0.88)
+            const isCandHypothetical = (cand.dimensionId || cand.forcedDimensionId || 1) === 9 ||
+              (cand.schemaType === 'ALAC' ||
+               (cand.question_text || cand.question || '').startsWith('During the trial') ||
+               (cand.question_text || cand.question || '').startsWith('A filed') ||
+               (cand.question_text || cand.question || '').match(/^[A-Z] and [A-Z]/));
+
+            const similarityThreshold = (isHypothetical || isCandHypothetical) ? 0.88 : threshold;
+
+            if (cardTokenSimilarity(promptText, cand.question_text || cand.question || '') >= similarityThreshold) {
+              matched = cand;
+              matchReason = 'similar';
+              break;
+            }
+          }
+        }
+
+        if (matched) {
+          const reason = matched._origIndex === idx ? 'duplicate' : matchReason;
+          card._mashReason = reason;
+          const merged = mergeCards(matched, card);
+          merged._mashReason = reason;
+          merged._preMergeRef = matched;
+
+          const pos = survivors.indexOf(matched);
+          if (pos >= 0) survivors[pos] = merged;
+          else survivors.push(merged);
+
+          seenSigs.set(sig, merged);
+          cardSections.set(merged._origIndex, cardSection);
+          refreshSigPointers(merged);
+          mashed.push({ index: idx, survivorIndex: pos >= 0 ? pos : survivors.length - 1, reason });
+        } else {
+          seenSigs.set(sig, card);
+          cardSections.set(idx, cardSection);
+          survivors.push(card);
+        }
+      });
+      return { survivors, mashed };
+    }
+
+    function sanitizeCardText(card) {
+      if (card.question_text) {
+        card.question_text = card.question_text.replace(/---\s*MASHED ADDITION\s*---/gi, '').replace(/\n\s*\n/g, '\n').trim();
+      }
+      if (card.question) {
+        card.question = card.question.replace(/---\s*MASHED ADDITION\s*---/gi, '').replace(/\n\s*\n/g, '\n').trim();
+      }
+      return card;
     }
 
     async function executeDeckDeduplication() {

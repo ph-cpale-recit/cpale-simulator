@@ -13,6 +13,27 @@
 This document chronicles the complete development history, architectural decisions, bug fixes, storage migrations, and feature milestones of the Philippine Bar Recitation Simulator suite.
 
 ---
+## 2026-11-25 — Card Mashing Engine Overhaul
+
+### Bug Fixes & Safety Controls
+
+* **(mashing)** Fixed cross-section & cross-hypothetical collision bugs in `cardSignature`, `cardTokenSimilarity`, `mergeCards`, and `cardMashPass`. Cards with different section/article numbers now correctly remain separate during deduplication.
+* **(mashing)** Raised `SIMILARITY_THRESHOLD` from 0.72 to 0.85 for general cards to prevent over-aggressive merging of distinct legal provisions.
+* **(mashing)** Added 0.88 similarity threshold requirement for hypothetical/problem cards (`dimensionId === 9`, `schemaType === 'ALAC'`, or prompts starting with "During the trial", "A filed", "Suppose", or "X and Y").
+* **(mashing)** Prevented `--- MASHED ADDITION ---` from being appended to `question_text` / `question` fields. Cleaned up existing markers in `mergeField` and `sanitizeCardText`.
+* **(mashing)** Strip `--- MASHED ADDITION ---` markers during `sanitizeQuestionPrompt` to ensure clean exports.
+
+### Code Changes
+
+* Added `extractSectionNumber()` helper to parse "Section #\d+", "Sec. #\d+", "Article #\d+", "Art. #\d+" patterns from topic/citation/prompt text.
+* Added `extractRuleReference()` helper for rule number extraction.
+* Implemented `cardSignature(card)` with section-aware signature generation to prevent cross-section collisions.
+* Implemented `cardTokenSimilarity(a, b)` for token-based similarity calculation with Jaccard-like metric.
+* Implemented `mergeField(a, b)` with MASHED ADDITION marker stripping and smart content merging.
+* Implemented `mergeCards(survivor, donor)` for non-destructive card merging with metadata preservation.
+* Implemented `cardMashPass(cards, threshold)` as the main deduplication engine with cross-section/hypothetical detection.
+* Added `sanitizeCardText(card)` function to strip MASHED ADDITION markers from cards.
+
 ## [Unreleased]
 
 ### Bug Fixes & Engine Corrections
