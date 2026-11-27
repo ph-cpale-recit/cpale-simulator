@@ -5181,8 +5181,7 @@ In benchmark_alac:
       const correctLetter = detectCorrectLetterFromBenchmark(pkg);
       const chosenObj = parsedCurrentMcq.choices.find(c => c.letter === chosen);
       const studentSummary = chosen
-        ? `Selected Choice ${chosen.toLowerCase()}. ${chosenObj ? chosenObj.text : ''}${scratchpad ? '
-Scratchpad: ' + scratchpad : ''}`
+        ? `Selected Choice ${chosen.toLowerCase()}. ${chosenObj ? chosenObj.text : ''}${scratchpad ? '\nScratchpad: ' + scratchpad : ''}`
         : scratchpad;
 
       // Instant 0 ms local grading when an MCQ option (A-D) is selected (no network timeout!)
