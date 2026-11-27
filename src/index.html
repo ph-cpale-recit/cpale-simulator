@@ -5714,7 +5714,26 @@ Grade strictly under Philippine PRC-BOA CPALE Board Exam standards (EXCELLENT, S
       return `Question ${qNum}: ${baseTitle}`;
     }
 
-function extractCardParagraphsForExport(c) {
+function formatQuestionAndChoicesForExport(rawQuestion) {
+      const stripBolds = (str) => (str || '').replace(/\*\*/g, '').trim();
+      const cleaned = sanitizeQuestionPrompt(stripBolds(rawQuestion));
+      const choiceRegex = /(?:^|\s+|(?<=[?.!]))([A-Da-d])[\.\)]\s+([\s\S]*?)(?=(?:\s+[A-Da-d][\.\)]\s+)|$)/g;
+      const choices = [];
+      let m, firstIdx = -1;
+      while ((m = choiceRegex.exec(cleaned)) !== null) {
+        if (firstIdx === -1) firstIdx = m.index;
+        choices.push({ letter: m[1].toLowerCase(), text: m[2].trim() });
+      }
+      if (choices.length >= 2 && firstIdx > 10) {
+        return {
+          stem: cleaned.substring(0, firstIdx).trim(),
+          choices: choices
+        };
+      }
+      return { stem: cleaned, choices: [] };
+    }
+
+    function extractCardParagraphsForExport(c) {
       const stripBolds = (str) => (str || '').replace(/\*\*/g, '').trim();
       const ensureLabel = (label, text) => {
         if (!text) return '';
@@ -5723,53 +5742,31 @@ function extractCardParagraphsForExport(c) {
       };
 
       const paras = [];
-      const dimId = c.dimensionId || c.forcedDimensionId;
-
       if (c.benchmark_comparative) {
         const comp = c.benchmark_comparative;
-        if (comp.case_a_summary) paras.push(ensureLabel('CASE 1 BRIEF', comp.case_a_summary));
-        if (comp.case_b_summary) paras.push(ensureLabel('CASE 2 BRIEF', comp.case_b_summary));
-        if (comp.comparative_synthesis) paras.push(ensureLabel('COMPARATIVE SYNTHESIS', comp.comparative_synthesis));
+        if (comp.case_a_summary) paras.push(ensureLabel('SCENARIO A ANALYSIS', comp.case_a_summary));
+        if (comp.case_b_summary) paras.push(ensureLabel('SCENARIO B ANALYSIS', comp.case_b_summary));
+        if (comp.comparative_synthesis) paras.push(ensureLabel('COMPARATIVE STANDARD SYNTHESIS', comp.comparative_synthesis));
       } else if (c.benchmark_fir) {
         const f = c.benchmark_fir;
-        if (dimId === 5) {
-          // Dimension 5: Facts & Procedural Posture ONLY
-          if (f.facts) paras.push(ensureLabel('OPERATIVE FACTS & PROCEDURAL POSTURE', f.facts));
-        } else if (dimId === 6) {
-          // Dimension 6: Holding & Ratio Decidendi ONLY
-          if (f.ruling) paras.push(ensureLabel('SUPREME COURT RULING', f.ruling));
-          if (f.ratio_doctrine) paras.push(ensureLabel('RATIO DECIDENDI & CONTROLLING DOCTRINE', f.ratio_doctrine));
-        } else {
-          // Dimension 7 or Full Brief: Facts, Issue, Ruling, Ratio
-          if (f.facts) paras.push(ensureLabel('FACTS', f.facts));
-          if (f.issue) paras.push(ensureLabel('ISSUE', f.issue));
-          if (f.ruling) paras.push(ensureLabel('RULING', f.ruling));
-          if (f.ratio_doctrine) paras.push(ensureLabel('RATIO DECIDENDI', f.ratio_doctrine));
-        }
+        if (f.facts) paras.push(ensureLabel('TRANSACTION FACTS', f.facts));
+        if (f.issue) paras.push(ensureLabel('ACCOUNTING / AUDIT ISSUE', f.issue));
+        if (f.ruling) paras.push(ensureLabel('JOURNAL ENTRY / CONCLUSION', f.ruling));
+        if (f.ratio_doctrine) paras.push(ensureLabel('FS PRESENTATION & PFRS/PSA BASIS', f.ratio_doctrine));
       } else if (c.benchmark_codal_breakdown) {
         const b = c.benchmark_codal_breakdown;
-        if (dimId === 1) {
-          if (c.codal_provision_text) paras.push(ensureLabel('STATUTORY PROVISION', c.codal_provision_text));
-          else if (b.operative_rule_summary) paras.push(ensureLabel('OPERATIVE RULE', b.operative_rule_summary));
-          if (b.application_ratio) paras.push(ensureLabel('POLICY & NATURE', b.application_ratio));
-        } else if (dimId === 2) {
-          if (b.elements_requisites) paras.push(ensureLabel('ESSENTIAL REQUISITES (NUMBERED ENUMERATION)', b.elements_requisites));
-        } else if (dimId === 3) {
-          if (b.statutory_exceptions) paras.push(ensureLabel('EXPRESS STATUTORY EXCEPTIONS & PROVISOS', b.statutory_exceptions));
-          if (b.jurisprudential_exceptions) paras.push(ensureLabel('CONTROLLING JURISPRUDENTIAL EXCEPTIONS', b.jurisprudential_exceptions));
-        } else {
-          if (c.codal_provision_text) paras.push(ensureLabel('STATUTORY PROVISION', c.codal_provision_text));
-          if (b.elements_requisites) paras.push(ensureLabel('ESSENTIAL REQUISITES', b.elements_requisites));
-          if (b.statutory_exceptions) paras.push(ensureLabel('EXPRESS STATUTORY EXCEPTIONS & PROVISOS', b.statutory_exceptions));
-          if (b.jurisprudential_exceptions) paras.push(ensureLabel('JURISPRUDENTIAL EXCEPTIONS & DOCTRINES', b.jurisprudential_exceptions));
-          if (b.application_ratio) paras.push(ensureLabel('POLICY & APPLICATION RATIO', b.application_ratio));
-        }
+        const primaryRule = b.operative_rule_summary || c.codal_provision_text;
+        if (primaryRule) paras.push(ensureLabel('ANSWER & GOVERNING STANDARD', primaryRule));
+        if (b.elements_requisites) paras.push(ensureLabel('STEP-BY-STEP PESO SCHEDULE / REQUISITES', b.elements_requisites));
+        if (b.statutory_exceptions) paras.push(ensureLabel('EXCEPTIONS & SPECIAL THRESHOLDS', b.statutory_exceptions));
+        if (b.jurisprudential_exceptions) paras.push(ensureLabel('DISTRACTOR ELIMINATION & QUALIFICATIONS', b.jurisprudential_exceptions));
+        if (b.application_ratio) paras.push(ensureLabel('POLICY & RATIONALE', b.application_ratio));
       } else if (c.benchmark_alac) {
         const a = c.benchmark_alac;
-        if (a.p1_direct_answer) paras.push(stripBolds(a.p1_direct_answer));
-        if (a.p2_legal_basis) paras.push(stripBolds(a.p2_legal_basis));
-        if (a.p3_analysis) paras.push(stripBolds(a.p3_analysis));
-        if (a.p4_conclusion) paras.push(stripBolds(a.p4_conclusion));
+        if (a.p1_direct_answer) paras.push(ensureLabel('DIRECT ANSWER', a.p1_direct_answer));
+        if (a.p2_legal_basis) paras.push(ensureLabel('STATUTORY / TAX / STANDARD BASIS', a.p2_legal_basis));
+        if (a.p3_analysis) paras.push(ensureLabel('COMPUTATION & FACTUAL APPLICATION', a.p3_analysis));
+        if (a.p4_conclusion) paras.push(ensureLabel('FINAL CONCLUSION', a.p4_conclusion));
       }
       return paras.filter(Boolean);
     }
@@ -5778,17 +5775,22 @@ function extractCardParagraphsForExport(c) {
       const deck = await dbGet('decks', deckId);
       if (!deck || !deck.cards || deck.cards.length === 0) return;
 
-      const stripBolds = (str) => (str || '').replace(/\*\*/g, '').trim();
-      let md = '';
+      let md = `# ${deck.subject || currentSubjectName} — ${deck.title}\n\n---\n\n`;
 
       deck.cards.forEach((c, idx) => {
         const qNum = idx + 1;
         const headerLine = formatExportQuestionHeader(c, qNum);
-        const rawQuestion = c.question_text || c.question || '';
-        const question = sanitizeQuestionPrompt(stripBolds(rawQuestion));
+        const parsedQ = formatQuestionAndChoicesForExport(c.question_text || c.question || '');
 
         md += `**${headerLine}**\n\n`;
-        md += `**${question}**\n\n`;
+        md += `${parsedQ.stem}\n\n`;
+
+        if (parsedQ.choices.length > 0) {
+          parsedQ.choices.forEach(ch => {
+            md += `   ${ch.letter}. ${ch.text}\n`;
+          });
+          md += `\n`;
+        }
 
         const cleanParas = extractCardParagraphsForExport(c).map(p => sanitizeQuestionPrompt(p));
         md += cleanParas.join('\n\n');
@@ -5809,38 +5811,61 @@ function extractCardParagraphsForExport(c) {
       const deck = await dbGet('decks', deckId);
       if (!deck || !deck.cards || deck.cards.length === 0) return;
 
-      const stripBolds = (str) => (str || '').replace(/\*\*/g, '').trim();
+      const splitParaLines = (text) => {
+        if (!text) return [];
+        return text
+          .replace(/\s+(?=\((?:[1-9]|10|[a-h])\)\s+)/gi, '\n')
+          .split(/\r?\n+/)
+          .map(s => s.trim())
+          .filter(Boolean);
+      };
+
       let docHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
       <head>
         <meta charset='utf-8'>
         <title>${escapeHtml(deck.title)}</title>
         <style>
-          body { font-family: 'Georgia', 'Times New Roman', serif; font-size: 11pt; line-height: 1.5; color: #000; margin: 1in; }
-          .doc-header { font-weight: bold; font-size: 13pt; margin-bottom: 14pt; border-bottom: 1.5px solid #000; padding-bottom: 6pt; }
-          .q-title { font-weight: bold; font-size: 11.5pt; margin-top: 18pt; margin-bottom: 6pt; }
-          .q-prompt { font-weight: bold; font-size: 11pt; margin-bottom: 12pt; }
-          .ans-para { text-indent: 0.5in; margin-top: 0; margin-bottom: 12pt; text-align: justify; }
-          hr { border: none; border-top: 1px solid #ccc; margin: 20pt 0; }
+          body { font-family: 'Georgia', 'Times New Roman', serif; font-size: 11pt; line-height: 1.5; color: #000000; margin: 1in; }
         </style>
       </head>
       <body>
-        <div class="doc-header">${escapeHtml(deck.subject || currentSubjectName)} — ${escapeHtml(deck.title)} [${escapeHtml(state.operatingPipeline)}]</div>`;
+        <p style="font-weight:bold; font-size:13pt; margin:0 0 14pt 0; border-bottom:1.5pt solid #000000; padding-bottom:6pt;">
+          ${escapeHtml(deck.subject || currentSubjectName)} — ${escapeHtml(deck.title)}
+        </p>`;
 
       deck.cards.forEach((c, idx) => {
         const qNum = idx + 1;
         const headerLine = formatExportQuestionHeader(c, qNum);
-        const rawQuestion = c.question_text || c.question || '';
-        const question = sanitizeQuestionPrompt(stripBolds(rawQuestion));
+        const parsedQ = formatQuestionAndChoicesForExport(c.question_text || c.question || '');
 
-        docHtml += `<div class="q-title">${escapeHtml(headerLine)}</div>`;
-        docHtml += `<div class="q-prompt">${escapeHtml(question)}</div>`;
+        docHtml += `<p style="font-weight:bold; font-size:11.5pt; margin:16pt 0 6pt 0;">${escapeHtml(headerLine)}</p>`;
+        docHtml += `<p style="font-weight:normal; font-size:11pt; margin:0 0 8pt 0; text-align:justify;">${escapeHtml(parsedQ.stem)}</p>`;
+
+        if (parsedQ.choices.length > 0) {
+          parsedQ.choices.forEach(ch => {
+            docHtml += `<p style="margin:0 0 3pt 0.4in; font-size:11pt;"><b>${escapeHtml(ch.letter)}.</b> ${escapeHtml(ch.text)}</p>`;
+          });
+        }
 
         const cleanParas = extractCardParagraphsForExport(c).map(p => sanitizeQuestionPrompt(p));
         cleanParas.forEach(p => {
-          docHtml += `<p class="ans-para">${escapeHtml(p)}</p>`;
+          const lines = splitParaLines(p);
+          lines.forEach((ln, lIdx) => {
+            const colonIdx = ln.indexOf(':');
+            const hasPrefix = lIdx === 0 && colonIdx > 0 && colonIdx < 48 && /^[A-Z0-9 /&()-]+$/.test(ln.substring(0, colonIdx));
+            const indent = lIdx === 0 ? '0.5in' : '0.75in';
+            const topMargin = lIdx === 0 ? '8pt' : '2pt';
+            if (hasPrefix) {
+              const lbl = ln.substring(0, colonIdx + 1);
+              const body = ln.substring(colonIdx + 1);
+              docHtml += `<p style="text-indent:${indent}; margin:${topMargin} 0 4pt 0; text-align:justify;"><b>${escapeHtml(lbl)}</b>${escapeHtml(body)}</p>`;
+            } else {
+              docHtml += `<p style="margin:${topMargin} 0 4pt ${indent}; text-align:justify;">${escapeHtml(ln)}</p>`;
+            }
+          });
         });
 
-        docHtml += `<hr/>`;
+        docHtml += `<p style="border-bottom:0.75pt solid #cccccc; margin:14pt 0 14pt 0;">&nbsp;</p>`;
       });
 
       docHtml += `</body></html>`;
