@@ -34,6 +34,10 @@ This document chronicles the complete development history, architectural decisio
 * Implemented `cardMashPass(cards, threshold)` as the main deduplication engine with cross-section/hypothetical detection.
 * Added `sanitizeCardText(card)` function to strip MASHED ADDITION markers from cards.
 
+## 2026-11-27 — Mashing Fixes Applied to CPALE Simulator
+
+* **(mashing)** `extractSectionNumber()` now also matches `PFRS \d+` and `PAS \d+` patterns to prevent cross-standard collisions (mashing on shared topic + dimension only).
+
 ## [Unreleased]
 
 ### Bug Fixes & Engine Corrections

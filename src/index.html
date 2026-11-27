@@ -2372,17 +2372,6 @@
         .trim();
     }
 
-    function sanitizeQuestionPrompt(text) {
-      if (!text) return '';
-      return text
-        .replace(/\[\s*Active Recall Cloze Enhanced:[^\]]*\]/gi, '')
-        .replace(/\(\s*Active Recall Cloze Enhanced:[^\)]*\)/gi, '')
-        .replace(/---\s*MASHED ADDITION\s*---/gi, '\n\n')
-        .replace(/\[\s*(?:Note|Instruction|Directive|Prompt Tag):[^\]]*\]/gi, '')
-        .replace(/\n\s*\n\s*\n+/g, '\n\n')
-        .trim();
-    }
-
     function checkConcordanceNote(topicText) {
       if (!topicText) return null;
       let lower = topicText.toLowerCase();
@@ -6103,7 +6092,7 @@ function extractCardParagraphsForExport(c) {
     // Extract section/article number from text
     function extractSectionNumber(text) {
       if (!text) return null;
-      const match = text.match(/(?:Section|Sec\.|Article|Art\.)\s*(\d+)/i);
+      const match = text.match(/(?:Section|Sec\.|Article|Art\.|PFRS|PAS)\s*(\d+)/i);
       return match ? match[1] : null;
     }
 
