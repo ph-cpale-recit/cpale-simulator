@@ -1,0 +1,14 @@
+function sanitizeQuestionPrompt(text) {
+      if (!text) return '';
+      return text
+        .replace(/\[\s*Active Recall Cloze Enhanced:[^\]]*\]/gi, '')
+        .replace(/\(\s*Active Recall Cloze Enhanced:[^\)]*\)/gi, '')
+        .replace(/\[\s*(?:Note|Instruction|Directive|Prompt Tag):[^\]]*\]/gi, '')
+        .replace(/\n\s*\n\s*\n+/g, '\n\n')
+        .trim();
+    }
+
+    function sanitizeQuestionPrompt(text) {
+      if (!text) return '';
+      return text
+        .replace(/\[\s*Active Recall 
