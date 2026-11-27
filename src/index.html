@@ -64,10 +64,9 @@
       </div>
     </div>
 
-    <!-- CENTER: DUAL-MODE TOGGLE -->
-    <div class="hidden md:flex items-center bg-slate-950 border border-slate-800 rounded-lg p-1 space-x-1">
-      <button id="modeAiBtn" onclick="setStudyMode('AI_EXAM')" class="text-xs px-3 py-1 rounded font-mono font-bold transition bg-amber-600 text-slate-950">AI Exam Grader</button>
-      <button id="modeCramBtn" onclick="setStudyMode('INSTANT_CRAM')" class="text-xs px-3 py-1 rounded font-mono text-slate-400 hover:text-slate-200 transition">Instant Cram (0 ms)</button>
+    <!-- CENTER: CPALE BOARD MODE BADGE -->
+    <div class="hidden md:flex items-center bg-slate-950 border border-amber-700/50 rounded-lg px-3 py-1">
+      <span class="text-xs font-mono font-bold text-amber-400">PRC-BOA MCQ · 0 ms Local + AI Solution</span>
     </div>
 
 <!-- RIGHT: QUICK ACTIONS -->
@@ -180,7 +179,7 @@
         </div>
 
         <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-          <span>Mode: <b id="modeIndicatorLabel" class="text-amber-400 font-mono">AI EXAM GRADER</b></span>
+          <span>Mode: <b id="modeIndicatorLabel" class="text-amber-400 font-mono">CPALE BOARD MCQ (0 ms)</b></span>
           <span id="retrievalStatusTag" class="text-emerald-400 font-mono text-[11px] truncate max-w-[260px]">Universal Hybrid v14.0</span>
         </div>
       </div>
@@ -249,10 +248,7 @@
               <span id="submitBtnText">Submit for Evaluation</span>
             </button>
 
-            <!-- MODE B BUTTON (TRUE 0 MS LOCAL FLIP) -->
-            <button id="flipCardBtn" onclick="revealInstantCramCard()" class="hidden bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold px-6 py-2.5 rounded-lg text-sm shadow transition flex items-center space-x-2">
-              <span>Flip Card (0 ms)</span>
-            </button>
+            
           </div>
         </div>
       </div>
@@ -276,48 +272,7 @@
           <span id="masteryDeltaText" class="font-bold text-amber-400">Card Evaluated</span>
         </div>
 
-        <div id="cramSelfGradingBar" class="hidden p-3 bg-slate-950 rounded-lg border border-emerald-800/60 flex items-center justify-between">
-          <span class="text-xs font-mono text-emerald-400 font-bold uppercase">Instant Self-Grading (Leitner Queue):</span>
-          <div class="flex items-center space-x-2">
-            <button onclick="applyCramGrade('DEFICIENT')" class="px-2.5 py-1 bg-red-950 text-red-300 border border-red-800 rounded text-xs font-mono font-bold hover:bg-red-900">Again (+3 cards)</button>
-            <button onclick="applyCramGrade('SATISFACTORY')" class="px-2.5 py-1 bg-amber-950 text-amber-300 border border-amber-800 rounded text-xs font-mono font-bold hover:bg-amber-900">Good (+1)</button>
-            <button onclick="applyCramGrade('EXCELLENT')" class="px-2.5 py-1 bg-emerald-950 text-emerald-300 border border-emerald-800 rounded text-xs font-mono font-bold hover:bg-emerald-900">Mastered (+2)</button>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold mb-1.5">1. CPALE Examiner Critique (MCQ Choice & Computation Accuracy)</h3>
-          <p id="critiqueText" class="text-slate-300 bg-slate-950 p-4 rounded-lg border border-slate-800/80 whitespace-pre-line"></p>
-        </div>
-
-        <div id="missedBox" class="bg-red-950/20 border border-red-900/40 rounded-lg p-4">
-          <h3 class="text-xs font-mono uppercase tracking-wider text-red-400 font-bold mb-1 flex items-center space-x-1.5">
-            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-            <span id="missedHeaderTitle">2. Omitted Computation Steps, Standards, or Statutory Exceptions</span>
-          </h3>
-          <p id="missedDoctrinesText" class="text-red-200/90 whitespace-pre-line"></p>
-        </div>
-
-        <div class="bg-amber-950/20 border border-amber-900/40 rounded-lg p-4">
-          <h3 class="text-xs font-mono uppercase tracking-wider text-amber-400 font-bold mb-1 flex items-center space-x-1.5">
-            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            <span>3. How to Avoid Board Traps & Distractors (PRC-BOA Standard)</span>
-          </h3>
-          <p id="polishText" class="text-amber-100/90 font-sans whitespace-pre-line"></p>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <h3 id="benchmarkHeaderTitle" class="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">
-              4. Authoritative CPALE Solution & Benchmark Breakdown
-            </h3>
-            <button type="button" onclick="toggleBenchmarkFontSize()" id="fontSizeToggleBtn" class="text-[11px] font-mono bg-slate-800 hover:bg-slate-700 text-amber-300 px-2.5 py-1 rounded border border-slate-700 transition">
-              Text Size: Standard (14px)
-            </button>
-          </div>
-          <div id="benchmarkAlacBox" class="space-y-4 bg-slate-950 p-5 rounded-xl border border-slate-800 font-sans text-slate-200 text-sm leading-relaxed"></div>
-        </div>
-      </div>
+        
 
       <div class="px-6 py-4 border-t border-slate-800 bg-slate-950/60 flex items-center justify-between flex-wrap gap-2">
         <span class="text-xs text-slate-400">Review diagnostic feedback before proceeding.</span>
@@ -5314,7 +5269,7 @@ Grade strictly under Philippine PRC-BOA CPALE Board Exam standards (EXCELLENT, S
     }
 
     function revealInstantCramCard() {
-      document.getElementById('cramSelfGradingBar').classList.remove('hidden');
+      if (document.getElementById('cramSelfGradingBar')) document.getElementById('cramSelfGradingBar').classList.remove('hidden');
       const currentItem = state.activeAgenda[state.currentQuestionIndex - 1];
       const pkg = state.currentBenchmarkPayload || currentItem;
       const studentDraft = document.getElementById('studentAnswer')?.value.trim() || "(Reviewed via Instant Cram 0 ms Mode)";
@@ -5469,7 +5424,7 @@ Grade strictly under Philippine PRC-BOA CPALE Board Exam standards (EXCELLENT, S
     }
 
     function closeEvaluation() {
-      document.getElementById('cramSelfGradingBar').classList.add('hidden');
+      if (document.getElementById('cramSelfGradingBar')) document.getElementById('cramSelfGradingBar').classList.add('hidden');
       toggleModal('evalModal');
     }
 
@@ -5511,7 +5466,7 @@ Grade strictly under Philippine PRC-BOA CPALE Board Exam standards (EXCELLENT, S
         `;
         document.getElementById('questionTag').innerText = "BATCH COMPLETE";
         document.getElementById('submitAnswerBtn').disabled = true;
-        document.getElementById('flipCardBtn').disabled = true;
+        if (document.getElementById('flipCardBtn')) document.getElementById('flipCardBtn').disabled = true;
         document.getElementById('activeTopicBadge').classList.add('hidden');
         clearInterval(state.timerInterval);
         return;
