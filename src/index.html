@@ -3918,7 +3918,7 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
         if (/Rule\s*\d+\s*(?:Section|Sec\.)/i.test(line)) continue;
         if (/(?:A\.M\.|A\.M\b|Hague|Convention|Circular)/i.test(line)) continue;
 
-        const cleanLine = line.replace(/^[-*•■\s]+/, '').replace(/^(?:[a-z]|\d+|[ivx]+)[\.\)]\s*/i, '').trim();
+        const cleanLine = line.replace(/^[-*•■\s]+/, '').replace(/^(?:[a-z]|\d+(?:\.\d+)*|[ivx]+)[\.\)]?\s*/i, '').trim();
         if (cleanLine.length < 4 || cleanLine.length > 120) continue;
 
         const isCaseLine = /\s+(?:v\b\.?|vs\b\.?|versus)\s+/i.test(cleanLine) ||
@@ -3976,9 +3976,21 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
         return finalPool;
       }
 
-      // Full Multi-Angle Assembly: Codals + Cases + Companion Pairs
-      if (activeCodalDims.length > 0 || activeReviewerDims.length > 0) {
-        finalPool.push(...rawCodalTopics);
+      // Full Multi-Angle Assembly: Multiply non-case topics across all active CPALE styles (1-6)
+      if (rawCodalTopics.length > 0) {
+        for (const tItem of rawCodalTopics) {
+          for (const dId of activeIds) {
+            const dReg = DIMENSIONS_REGISTRY[dId];
+            if (!dReg) continue;
+            finalPool.push({
+              ...tItem,
+              topic: `${tItem.topic} [${dReg.exportTag}]`,
+              baseTopic: tItem.topic,
+              forcedDimensionId: dId,
+              isCase: false
+            });
+          }
+        }
       }
 
       if (activeSingleCaseDims.length > 0) {
