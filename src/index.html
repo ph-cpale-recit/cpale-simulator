@@ -4694,7 +4694,7 @@ ${excerpts ? `[SOURCE EXCERPTS]:\n${excerpts}\n` : ''}
 ${atomicDirective}
 
 CRITICAL ANTI-TRUNCATION MANDATE (PHASE 6):
-1. In operative_rule_summary: State the complete operative statutory provision. If the rule contains enumerated factors or subsections (such as Rule 133 Sec. 5 factors [a] through [e]), YOU MUST STATE ALL FACTORS IN FULL. NEVER cut off sentences with colons (:), dashes (-), or "for that purpose may consider the following:".
+1. In operative_rule_summary: Start with 'Correct Choice: [A/B/C/D].' followed by the complete governing standard, tax provision, or formula. If the rule contains enumerated factors or subsections (such as Rule 133 Sec. 5 factors [a] through [e]), YOU MUST STATE ALL FACTORS IN FULL. NEVER cut off sentences with colons (:), dashes (-), or "for that purpose may consider the following:".
 2. In elements_requisites: Enumerate all mandatory requisites strictly using numbered markers: (1), (2), (3)...
 3. In statutory_exceptions: Enumerate all express statutory exceptions or provisos using numbered markers: (1), (2)...
 4. In jurisprudential_exceptions: Enumerate controlling Supreme Court doctrinal exceptions or qualifications.
@@ -4762,7 +4762,7 @@ MANDATORY DIRECTIVES:
 
 STRICT 4-PART ALAC INTEGRITY STANDARD (PHASE 6):
 In benchmark_alac:
-- p1_direct_answer: EXACTLY ONE unequivocal, categorical ruling sentence answering the call directly (e.g., "No, the plaintiff's objection is not meritorious.", "Yes, the motion to quash must be granted.", "The accused is liable for Murder.").
+- p1_direct_answer: Start with 'Correct Choice: [A/B/C/D].' followed by ONE unequivocal ruling sentence answering the call directly (e.g., "No, the plaintiff's objection is not meritorious.", "Yes, the motion to quash must be granted.", "The accused is liable for Murder.").
 - p2_legal_basis: MUST state the exact governing legal citation (statute, rule number, or landmark precedent) AND recite the full substantive legal rule/elements/test. 
   *** STRICT PROHIBITION: A bare citation line (e.g. 'Rule 133, Section 7 of the Rules on Evidence' or 'Article 1156 of the Civil Code') WITHOUT reciting the operative rule itself is STRICTLY FORBIDDEN. You must recite the governing rule (e.g., 'Under Rule 133, Section 7 of the 2019 Revised Rules on Evidence, the court may stop the introduction of further testimony upon any particular point when the evidence upon it is already so full that more witnesses to the same point cannot be reasonably expected to be additionally persuasive. But this power should be exercised with caution.'). ***
 - p3_analysis: Systematically pair the operative facts of the problem scenario with each requisite of the legal basis.
@@ -5419,24 +5419,24 @@ Grade strictly under Philippine PRC-BOA CPALE Board Exam standards (EXCELLENT, S
         box.innerHTML = `
           <div class="space-y-4">
             <div class="p-4 bg-slate-900/95 rounded-xl border border-amber-700/50 shadow-sm">
-              <span class="font-mono text-amber-300 text-xs uppercase block font-bold mb-2 tracking-wider">■ 1. Verbatim Statutory Text & Operative Rule Summary</span>
+              <span class="font-mono text-amber-300 text-xs uppercase block font-bold mb-2 tracking-wider">■ 1. Correct Choice & Governing Standard / Formula</span>
               <div class="text-slate-200 space-y-2.5">${formatBenchmarkText(verbatim, false)}</div>
             </div>
             <div class="p-4 bg-slate-900/90 rounded-xl border border-emerald-800/60 shadow-sm">
-              <span class="font-mono text-emerald-400 text-xs uppercase block font-bold mb-2 tracking-wider">■ 2. Essential Elements & Requisites (Numbered Enumeration)</span>
+              <span class="font-mono text-emerald-400 text-xs uppercase block font-bold mb-2 tracking-wider">■ 2. Step-by-Step Peso Computation / Essential Requisites</span>
               <div class="text-emerald-100/95 space-y-2.5">${formatBenchmarkText(b.elements_requisites, true)}</div>
             </div>
             <div class="p-4 bg-slate-900/80 rounded-xl border border-amber-800/60 shadow-sm">
-              <span class="font-mono text-amber-400 text-xs uppercase block font-bold mb-2 tracking-wider">■ 3A. Express Statutory Exceptions & Provisos</span>
+              <span class="font-mono text-amber-400 text-xs uppercase block font-bold mb-2 tracking-wider">■ 3A. Exceptions, Provisos & Special Thresholds</span>
               <div class="text-slate-200 space-y-2.5">${formatBenchmarkText(b.statutory_exceptions, false)}</div>
             </div>
             ${b.jurisprudential_exceptions ? `
             <div class="p-4 bg-slate-900/80 rounded-xl border border-sky-800/60 shadow-sm">
-              <span class="font-mono text-sky-400 text-xs uppercase block font-bold mb-2 tracking-wider">■ 3B. Controlling Jurisprudential Exceptions & Qualifications</span>
+              <span class="font-mono text-sky-400 text-xs uppercase block font-bold mb-2 tracking-wider">■ 3B. Board Distractor Elimination & Qualifications</span>
               <div class="text-slate-200 space-y-2.5">${formatBenchmarkText(b.jurisprudential_exceptions, false)}</div>
             </div>` : ''}
             <div class="p-4 bg-slate-900/70 rounded-xl border border-slate-800 shadow-sm">
-              <span class="font-mono text-slate-300 text-xs uppercase block font-bold mb-2 tracking-wider">■ 4. Legal Policy & Application Ratio</span>
+              <span class="font-mono text-slate-300 text-xs uppercase block font-bold mb-2 tracking-wider">■ 4. Standard / Tax / Audit Policy & Application Rationale</span>
               <div class="text-slate-200 space-y-2.5">${formatBenchmarkText(b.application_ratio, true)}</div>
             </div>
           </div>
