@@ -204,26 +204,40 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center justify-between mb-2">
           <label id="answerPadLabel" for="studentAnswer" class="text-sm font-semibold tracking-wide text-slate-300 uppercase">
-            CPALE Board Q&amp;A &amp; Computation Pad (MCQ A–D · Journal Entries · Tax/RFBT)
+            Select CPALE Board Answer (A, B, C, or D)
           </label>
           <div class="flex items-center space-x-2">
-            <button id="editCurrentCardBtn" type="button" onclick="editActiveCardInPlace(false)" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-amber-300 px-2.5 py-0.5 rounded border border-amber-700/70 font-mono font-semibold transition cursor-pointer flex items-center space-x-1" title="Edit this card's prompt, citations, or model answers in place without losing your active recitation session (Press Ctrl+E)">
+            <button id="editCurrentCardBtn" type="button" onclick="editActiveCardInPlace(false)" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-amber-300 px-2.5 py-0.5 rounded border border-amber-700/70 font-mono font-semibold transition cursor-pointer flex items-center space-x-1" title="Edit this card in place (Ctrl+E)">
               <span>✏️ Edit Card</span>
               <kbd class="px-1 py-0.2 bg-slate-950 text-amber-400 border border-slate-700 rounded text-[9px]">Ctrl+E</kbd>
             </button>
-            <span id="wordCount" class="text-xs font-mono text-slate-400">0 words</span>
+            <span id="wordCount" class="text-xs font-mono text-slate-400">No choice selected</span>
           </div>
         </div>
 
-        <textarea
-          id="studentAnswer"
-          placeholder="Select your CPALE Board MCQ answer (A, B, C, or D) and show your supporting peso computation or standard rationale:&#10;• Computational / Formula Card: State your chosen letter (A–D) and show your step-by-step peso schedule or formula substitution.&#10;• Journal Entry / FS Card: State your chosen letter (A–D), Debit/Credit entries, and Current vs. Non-Current or P&L/OCI impact.&#10;• Theory / Audit / Tax / RFBT Card: State your chosen letter (A–D), evaluate Statement I / II traps, and cite the governing PFRS/PAS, PSA, NIRC/EOPT, or RFBT rule..."
-          class="w-full flex-1 min-h-[260px] bg-slate-950/90 border border-slate-800 focus:border-amber-500 rounded-lg p-4 text-slate-200 font-sans leading-relaxed focus:outline-none focus:ring-1 focus:ring-amber-500 resize-none transition"
-          oninput="updateWordCount()"
-          onkeydown="handleAnswerKeyDown(event)"
-        ></textarea>
+        <!-- CLICKABLE MCQ OPTIONS CONTAINER (A, B, C, D) -->
+        <div id="mcqOptionsContainer" class="space-y-2.5 mb-3">
+          <div class="p-4 rounded-xl border border-slate-800 bg-slate-950/70 text-xs text-slate-400 font-mono">
+            Launch a CPALE deck or batch to display clickable choices (a, b, c, d) here.
+          </div>
+        </div>
+
+        <!-- OPTIONAL SCRATCHPAD FOR PESO COMPUTATIONS -->
+        <div class="flex-1 flex flex-col">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[11px] font-mono uppercase text-slate-400">Optional Computation Scratchpad (No typing required to submit)</span>
+            <span class="text-[10px] font-mono text-slate-500">Keys: A / B / C / D to pick · Ctrl+Enter to submit</span>
+          </div>
+          <textarea
+            id="studentAnswer"
+            placeholder="Optional scratchpad for peso schedules, T-accounts, or journal entries..."
+            class="w-full flex-1 min-h-[90px] bg-slate-950/90 border border-slate-800 focus:border-amber-500 rounded-lg p-3 text-slate-200 font-mono text-xs leading-relaxed focus:outline-none focus:ring-1 focus:ring-amber-500 resize-none transition"
+            oninput="updateWordCount()"
+            onkeydown="handleAnswerKeyDown(event)"
+          ></textarea>
+        </div>
 
         <div class="mt-4 flex items-center justify-between">
           <span class="text-xs text-slate-400">Shortcut: <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">Ctrl + Enter</kbd></span>
@@ -4898,7 +4912,7 @@ In benchmark_alac:
 
       const ansPad = document.getElementById('studentAnswer');
       const ansLabel = document.getElementById('answerPadLabel');
-      if (ansPad && dimObj.placeholder) ansPad.placeholder = dimObj.placeholder;
+      if (ansPad) ansPad.placeholder = 'Optional scratchpad for peso schedules, T-accounts, or journal entries...';
       if (ansLabel) ansLabel.innerText = `CPALE Board Answer Pad — ${dimObj.shortTag}`;
 
       const concNote = checkConcordanceNote(currentItem.baseTopic || currentItem.topic) || checkConcordanceNote(currentItem.rule_citation);
@@ -4964,7 +4978,7 @@ In benchmark_alac:
         if (existingIdx !== -1) state.activeDeckCardsPool[existingIdx] = cardRecord;
         else state.activeDeckCardsPool.push(cardRecord);
 
-        document.getElementById('questionContainer').innerText = formatMcqChoicesLayout(state.currentQuestionText);
+        renderSplitMcqQuestionAndChoices(state.currentQuestionText);
         document.getElementById('submitAnswerBtn').disabled = false;
         document.getElementById('saveDeckHeaderBtn').classList.remove('hidden');
         updateWordCount();
@@ -5041,10 +5055,195 @@ In benchmark_alac:
     // ---------------------------------------------------------------------------
     // POLYMORPHIC AI EVALUATION & SEPARATED CODAL EXCEPTION RENDERER
     // ---------------------------------------------------------------------------
-    async function submitStudentAnswer() {
-      const answer = document.getElementById('studentAnswer').value.trim();
-      if (!answer) { alert("Please enter your recitation answer."); return; }
+    // ---------------------------------------------------------------------------
+    // SPLIT MCQ PARSER & CLICKABLE OPTION SELECTOR (STEM LEFT · CHOICES RIGHT)
+    // ---------------------------------------------------------------------------
+    let selectedMcqLetter = null;
+    let parsedCurrentMcq = { stem: '', choices: [] };
 
+    function parseMcqStemAndChoices(rawText) {
+      const cleaned = sanitizeQuestionPrompt(rawText || '');
+      if (!cleaned) return { stem: '', choices: [] };
+
+      // Match A. / B. / C. / D. or a. / b. / c. / d. choices
+      const choiceRegex = /(?:^|\s+)([A-Da-d])[\.\)]\s+([\s\S]*?)(?=(?:\s+[A-Da-d][\.\)]\s+)|$)/g;
+      const matches = [];
+      let m;
+      let firstIdx = -1;
+      while ((m = choiceRegex.exec(cleaned)) !== null) {
+        if (firstIdx === -1) firstIdx = m.index;
+        matches.push({
+          letter: m[1].toUpperCase(),
+          text: m[2].trim()
+        });
+      }
+
+      if (matches.length >= 2 && firstIdx > 10) {
+        return {
+          stem: cleaned.substring(0, firstIdx).trim(),
+          choices: matches
+        };
+      }
+      return { stem: cleaned, choices: [] };
+    }
+
+    function selectMcqChoice(letter) {
+      selectedMcqLetter = letter ? letter.toUpperCase() : null;
+      document.querySelectorAll('.mcq-choice-btn').forEach(btn => {
+        const isSel = btn.dataset.letter === selectedMcqLetter;
+        btn.className = isSel
+          ? 'mcq-choice-btn w-full text-left p-3.5 rounded-xl border-2 border-amber-500 bg-amber-950/40 text-slate-100 transition flex items-start space-x-3 shadow-md cursor-pointer'
+          : 'mcq-choice-btn w-full text-left p-3.5 rounded-xl border border-slate-800 hover:border-slate-600 bg-slate-950/90 text-slate-300 transition flex items-start space-x-3 cursor-pointer';
+        const badge = btn.querySelector('.mcq-letter-badge');
+        if (badge) {
+          badge.className = isSel
+            ? 'mcq-letter-badge w-6 h-6 rounded-full bg-amber-500 text-slate-950 font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5'
+            : 'mcq-letter-badge w-6 h-6 rounded-full bg-slate-800 text-amber-300 font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5';
+        }
+      });
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.innerText = selectedMcqLetter ? `Selected: ${selectedMcqLetter}` : 'No choice selected';
+    }
+
+    function renderSplitMcqQuestionAndChoices(rawQuestionText) {
+      selectedMcqLetter = null;
+      parsedCurrentMcq = parseMcqStemAndChoices(rawQuestionText);
+      const qContainer = document.getElementById('questionContainer');
+      const optContainer = document.getElementById('mcqOptionsContainer');
+
+      if (qContainer) {
+        qContainer.innerText = parsedCurrentMcq.stem;
+      }
+
+      if (!optContainer) return;
+      if (parsedCurrentMcq.choices.length >= 2) {
+        optContainer.innerHTML = parsedCurrentMcq.choices.map(ch => `
+          <button type="button" data-letter="${ch.letter}" onclick="selectMcqChoice('${ch.letter}')" class="mcq-choice-btn w-full text-left p-3.5 rounded-xl border border-slate-800 hover:border-slate-600 bg-slate-950/90 text-slate-300 transition flex items-start space-x-3 cursor-pointer">
+            <span class="mcq-letter-badge w-6 h-6 rounded-full bg-slate-800 text-amber-300 font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">${ch.letter.toLowerCase()}.</span>
+            <span class="font-serif text-sm leading-relaxed flex-1">${escapeHtml(ch.text)}</span>
+          </button>
+        `).join('');
+      } else {
+        optContainer.innerHTML = `
+          <div class="grid grid-cols-4 gap-2">
+            ${['A', 'B', 'C', 'D'].map(L => `
+              <button type="button" data-letter="${L}" onclick="selectMcqChoice('${L}')" class="mcq-choice-btn p-3 rounded-xl border border-slate-800 hover:border-slate-600 bg-slate-950/90 text-slate-300 transition flex items-center justify-center space-x-2 cursor-pointer">
+                <span class="mcq-letter-badge w-6 h-6 rounded-full bg-slate-800 text-amber-300 font-mono font-bold text-xs flex items-center justify-center">${L.toLowerCase()}.</span>
+                <span class="font-mono text-xs font-bold">Choice ${L}</span>
+              </button>
+            `).join('')}
+          </div>
+        `;
+      }
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.innerText = 'No choice selected';
+    }
+
+    function detectCorrectLetterFromBenchmark(pkg) {
+      const blob = JSON.stringify(pkg || {});
+      const patterns = [
+        /(?:Correct\s+(?:Choice|Answer|Option)|Answer)\s*[:\-]?\s*\(?([A-D])\)?\b/i,
+        /\bChoice\s+([A-D])\s+is\s+correct\b/i,
+        /"(?:operative_rule_summary|p1_direct_answer|ruling)"\s*:\s*"\s*\(?([A-D])[\.\)\s:-]/i
+      ];
+      for (const rx of patterns) {
+        const m = blob.match(rx);
+        if (m && m[1]) return m[1].toUpperCase();
+      }
+      return null;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!state.isSessionActive) return;
+      const tag = (document.activeElement?.tagName || '').toUpperCase();
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      const k = (e.key || '').toUpperCase();
+      if (['A', 'B', 'C', 'D'].includes(k)) {
+        e.preventDefault();
+        selectMcqChoice(k);
+      } else if (['1', '2', '3', '4'].includes(k)) {
+        e.preventDefault();
+        selectMcqChoice(['A', 'B', 'C', 'D'][parseInt(k, 10) - 1]);
+      }
+    });
+
+
+    async function submitStudentAnswer() {
+      const scratchpad = document.getElementById('studentAnswer').value.trim();
+      const chosen = selectedMcqLetter;
+      if (!chosen && !scratchpad) {
+        alert("Please select an option (a, b, c, or d) on the right panel before submitting.");
+        return;
+      }
+
+      const currentItem = state.activeAgenda[state.currentQuestionIndex - 1];
+      const pkg = state.currentBenchmarkPayload || currentItem;
+      const correctLetter = detectCorrectLetterFromBenchmark(pkg);
+      const chosenObj = parsedCurrentMcq.choices.find(c => c.letter === chosen);
+      const studentSummary = chosen
+        ? `Selected Choice ${chosen.toLowerCase()}. ${chosenObj ? chosenObj.text : ''}${scratchpad ? '
+Scratchpad: ' + scratchpad : ''}`
+        : scratchpad;
+
+      // Instant 0 ms local grading when an MCQ option (A-D) is selected (no network timeout!)
+      if (chosen) {
+        let rating = 'SATISFACTORY';
+        let critique = '';
+        let missed = '';
+        let polish = '';
+
+        if (correctLetter) {
+          if (chosen === correctLetter) {
+            rating = 'EXCELLENT';
+            critique = `Correct! You selected Choice ${chosen.toLowerCase()}. Verify every step of the authoritative schedule and distractor elimination below to lock in mastery.`;
+            missed = 'None — correct board choice selected.';
+            polish = 'Review the alternative choices below to ensure you can spot the exact board distractors under time pressure.';
+          } else {
+            rating = 'DEFICIENT';
+            critique = `Incorrect. You selected Choice ${chosen.toLowerCase()}, whereas the authoritative answer is Choice ${correctLetter.toLowerCase()}.`;
+            missed = `Selected ${chosen.toLowerCase()}. instead of ${correctLetter.toLowerCase()}. Check the step-by-step computation or standard exception in the benchmark below.`;
+            polish = `Compare why Choice ${correctLetter.toLowerCase()}. satisfies the governing rule and why Choice ${chosen.toLowerCase()}. is a PRC-BOA distractor.`;
+          }
+        } else {
+          rating = 'SATISFACTORY';
+          critique = `You selected Choice ${chosen.toLowerCase()}. Compare your selection directly against the authoritative CPALE solution breakdown below.`;
+          missed = 'Verify your chosen option against the governing standard and peso computation below.';
+          polish = 'Confirm all exceptions, thresholds, and cut-off dates in the solution below.';
+        }
+
+        let deltaMsg = await updateTopicMastery(currentItem.topic || currentItem.case_title, rating, state.isAssisted);
+        await stampSubjectModifiedTimestamp();
+
+        if (rating === 'DEFICIENT') {
+          const reinsertIdx = Math.min(state.activeAgenda.length, state.currentQuestionIndex + 3);
+          state.activeAgenda.splice(reinsertIdx, 0, { ...currentItem, isLeitnerRequeue: true });
+          state.totalQuestions = state.activeAgenda.length;
+          document.getElementById('totalQNum').innerText = state.totalQuestions;
+          deltaMsg += " · ⚠️ Re-queued 3 cards later (Leitner Drill)";
+        }
+
+        document.getElementById('masteryDeltaText').innerText = deltaMsg;
+
+        state.sessionTranscript.push({
+          qNum: state.currentQuestionIndex,
+          topic: currentItem.topic || currentItem.case_title,
+          question: state.currentQuestionText,
+          studentAnswer: studentSummary,
+          rating: rating,
+          critique: critique,
+          payload: pkg
+        });
+
+        renderEvaluation({
+          rating: rating,
+          critique: critique,
+          missed_details: missed,
+          correction_polish: polish
+        });
+        return;
+      }
+
+      // Fallback to AI grading only if user typed a free-form solution without clicking A-D
       const submitBtn = document.getElementById('submitAnswerBtn');
       const spinner = document.getElementById('submitSpinner');
       const btnText = document.getElementById('submitBtnText');
@@ -5052,9 +5251,6 @@ In benchmark_alac:
       submitBtn.disabled = true;
       spinner.classList.remove('hidden');
       btnText.innerText = "Evaluating...";
-
-      const currentItem = state.activeAgenda[state.currentQuestionIndex - 1];
-      const pkg = state.currentBenchmarkPayload || currentItem;
 
       const evalSchema = {
         type: "OBJECT",
@@ -5074,26 +5270,17 @@ In benchmark_alac:
       const evalPrompt = [{
         role: "user",
         parts: [{
-          text: `[ACTIVE RECITATION EVALUATION]:
-Topic / Case: ${currentItem.topic || currentItem.case_title}
-Active Dimension: ${currentItem.dimension || ''}
-Question Asked: ${state.currentQuestionText}
-
-STUDENT ANSWER:
-${answer}
-
-AUTHORITATIVE BENCHMARK:
-${benchmarkJson}
-
-TASK: Grade the student's recitation strictly on the specific dimension asked in the Question under Substantial Compliance (EXCELLENT, SATISFACTORY, DEFICIENT).
-- Do not penalize the student for omitting exceptions if the question only asked for the definition or elements.
-- If this is a Dual-Case Comparative Synthesis (Dimension 8), provide a single unified comparative analysis evaluating how well the student contrasted both cases.
-- Output rating, critique, missed_details, and correction_polish.`
+          text: `[CPALE BOARD EVALUATION]:
+Topic: ${currentItem.topic || currentItem.case_title}
+Question: ${state.currentQuestionText}
+CANDIDATE ANSWER: ${studentSummary}
+AUTHORITATIVE BENCHMARK: ${benchmarkJson}
+Grade strictly under Philippine PRC-BOA CPALE Board Exam standards (EXCELLENT, SATISFACTORY, DEFICIENT).`
         }]
       }];
 
       try {
-        const rawJson = await callGemini(evalPrompt, "Grade strictly under Philippine PRC-BOA CPALE Board Exam standards: verify whether the candidate selected the correct MCQ letter (A, B, C, or D), applied the exact PFRS/PAS, PSA, NIRC/TRAIN/CREATE/EOPT, or RFBT rule, and computed the peso figures accurately.", evalSchema);
+        const rawJson = await callGemini(evalPrompt, "Grade strictly under Philippine PRC-BOA CPALE Board Exam standards.", evalSchema);
         const data = parseAIJson(rawJson);
 
         let deltaMsg = await updateTopicMastery(currentItem.topic || currentItem.case_title, data.rating, state.isAssisted);
@@ -5108,17 +5295,15 @@ TASK: Grade the student's recitation strictly on the specific dimension asked in
         }
 
         document.getElementById('masteryDeltaText').innerText = deltaMsg;
-
         state.sessionTranscript.push({
           qNum: state.currentQuestionIndex,
           topic: currentItem.topic || currentItem.case_title,
           question: state.currentQuestionText,
-          studentAnswer: answer,
+          studentAnswer: studentSummary,
           rating: data.rating,
           critique: data.critique,
           payload: pkg
         });
-
         renderEvaluation(data);
       } catch (err) {
         alert("Evaluation failed: " + err.message);
