@@ -251,7 +251,7 @@
       <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
         <div class="flex items-center space-x-3">
           <span id="ratingBadge" class="px-3 py-1 rounded-full text-xs font-bold font-mono tracking-wider">SATISFACTORY</span>
-          <h2 id="evalModalTitle" class="font-serif font-bold text-slate-200 text-base">Diagnostic Recitation Evaluation</h2>
+          <h2 id="evalModalTitle" class="font-serif font-bold text-slate-200 text-base">CPALE Diagnostic Evaluation</h2>
         </div>
         <button onclick="closeEvaluation()" class="text-slate-400 hover:text-slate-200 text-xl leading-none">&times;</button>
       </div>
@@ -272,14 +272,14 @@
         </div>
 
         <div>
-          <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold mb-1.5">1. Professor Critique (Substantial Compliance Standard)</h3>
+          <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold mb-1.5">1. CPALE Examiner Critique (MCQ Choice & Computation Accuracy)</h3>
           <p id="critiqueText" class="text-slate-300 bg-slate-950 p-4 rounded-lg border border-slate-800/80 whitespace-pre-line"></p>
         </div>
 
         <div id="missedBox" class="bg-red-950/20 border border-red-900/40 rounded-lg p-4">
           <h3 class="text-xs font-mono uppercase tracking-wider text-red-400 font-bold mb-1 flex items-center space-x-1.5">
             <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-            <span id="missedHeaderTitle">2. Omitted Statutory Elements, Operative Facts, or Doctrines</span>
+            <span id="missedHeaderTitle">2. Omitted Computation Steps, Standards, or Statutory Exceptions</span>
           </h3>
           <p id="missedDoctrinesText" class="text-red-200/90 whitespace-pre-line"></p>
         </div>
@@ -287,7 +287,7 @@
         <div class="bg-amber-950/20 border border-amber-900/40 rounded-lg p-4">
           <h3 class="text-xs font-mono uppercase tracking-wider text-amber-400 font-bold mb-1 flex items-center space-x-1.5">
             <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            <span>3. How to Adjust & Polish Your Delivery (Bar Standard)</span>
+            <span>3. How to Avoid Board Traps & Distractors (PRC-BOA Standard)</span>
           </h3>
           <p id="polishText" class="text-amber-100/90 font-sans whitespace-pre-line"></p>
         </div>
@@ -295,7 +295,7 @@
         <div>
           <div class="flex items-center justify-between mb-2">
             <h3 id="benchmarkHeaderTitle" class="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">
-              4. Authoritative Benchmark Breakdown (Structured & Formatted)
+              4. Authoritative CPALE Solution & Benchmark Breakdown
             </h3>
             <button type="button" onclick="toggleBenchmarkFontSize()" id="fontSizeToggleBtn" class="text-[11px] font-mono bg-slate-800 hover:bg-slate-700 text-amber-300 px-2.5 py-1 rounded border border-slate-700 transition">
               Text Size: Standard (14px)
@@ -327,7 +327,7 @@
       <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
         <div class="flex items-center space-x-3">
           <span class="px-3 py-1 rounded-full text-xs font-bold font-mono tracking-wider bg-amber-950 text-amber-300 border border-amber-800">DEBRIEF</span>
-          <h2 class="font-serif font-bold text-slate-200 text-base">Recitation Session Transcript</h2>
+          <h2 class="font-serif font-bold text-slate-200 text-base">CPALE Practice Session Transcript</h2>
         </div>
         <button onclick="toggleModal('debriefModal')" class="text-slate-400 hover:text-slate-200 text-xl leading-none">&times;</button>
       </div>
@@ -583,22 +583,22 @@
         <div id="singleCardStudioPanel" class="space-y-4">
           <!-- ARCHETYPE BUTTON SELECTOR -->
           <div>
-            <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1.5">Recitation Archetype:</label>
+            <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1.5">CPALE Card Archetype:</label>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
               <button type="button" id="archBtn_CODAL" onclick="setCardArchetype('CODAL')" class="p-2 rounded-lg border border-amber-600 bg-amber-950/40 text-amber-300 font-mono font-bold text-left transition shadow">
                 🧮 Computational MCQ
               </button>
               <button type="button" id="archBtn_CASE" onclick="setCardArchetype('CASE')" class="p-2 rounded-lg border border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 font-mono font-bold text-left transition">
-                📒 Journal Entry & FS
+                📒 Journal Entry &amp; FS
               </button>
               <button type="button" id="archBtn_ALAC" onclick="setCardArchetype('ALAC')" class="p-2 rounded-lg border border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 font-mono font-bold text-left transition">
                 ⚖️ Tax / RFBT Problem
               </button>
               <button type="button" id="archBtn_PROCEDURAL" onclick="setCardArchetype('PROCEDURAL')" class="p-2 rounded-lg border border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 font-mono font-bold text-left transition">
-                🔍 Audit & Controls
+                🔍 Audit &amp; Controls
               </button>
               <button type="button" id="archBtn_SIMPLE" onclick="setCardArchetype('SIMPLE')" class="p-2 rounded-lg border border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 font-mono font-bold text-left transition">
-                ⚡ Concept / Standard Q&A
+                ⚡ Concept / Standard Q&amp;A
               </button>
             </div>
           </div>
@@ -606,127 +606,126 @@
           <!-- COMMON TOPIC & CITATION -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div class="md:col-span-2 relative group">
-              <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1" id="customTopicLabel">Topic / Provision / Case Title *</label>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1" id="customTopicLabel">Topic / Standard / Problem Title *</label>
               <div class="relative">
-                <input type="text" id="customTopicInput" placeholder="e.g. Dying Declaration or People v. Estibal" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 pr-8 text-slate-200 text-xs focus:outline-none focus:border-amber-500 font-sans" />
-                <button type="button" onclick="openFieldExpand('customTopicInput', 'Topic / Provision')" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <input type="text" id="customTopicInput" placeholder="e.g. PAS 16 Revaluation Model or EOPT VAT Zero-Rating" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 pr-8 text-slate-200 text-xs focus:outline-none focus:border-amber-500 font-sans" />
+                <button type="button" onclick="openFieldExpand('customTopicInput', 'Topic / Standard')" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
             <div class="relative group">
-              <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1">Citation / Docket</label>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1">Standard / Tax / Legal Citation</label>
               <div class="relative">
-                <input type="text" id="customCitationInput" placeholder="e.g. Rule 130, Sec. 38 or G.R. 208749" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 pr-8 text-slate-200 text-xs focus:outline-none focus:border-amber-500 font-mono" />
-                <button type="button" onclick="openFieldExpand('customCitationInput', 'Citation / Docket')" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <input type="text" id="customCitationInput" placeholder="e.g. PFRS 15, par. 31 or NIRC Sec. 106(A)" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 pr-8 text-slate-200 text-xs focus:outline-none focus:border-amber-500 font-mono" />
+                <button type="button" onclick="openFieldExpand('customCitationInput', 'Standard / Citation')" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
           </div>
 
           <!-- QUESTION CALL -->
           <div class="relative group">
-            <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1">Recitation Question / Prompt *</label>
+            <label class="block text-[11px] font-mono uppercase text-slate-400 font-bold mb-1">CPALE Board Question / MCQ Stem &amp; Choices (A–D) *</label>
             <div class="relative">
-              <textarea id="customQuestionPromptInput" rows="2" placeholder="e.g. Counsel, what are the four essential requisites of a dying declaration under the Rules on Evidence?" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 pr-8 text-slate-200 text-xs focus:outline-none focus:border-amber-500 resize-none font-sans leading-relaxed"></textarea>
+              <textarea id="customQuestionPromptInput" rows="3" placeholder="e.g. On January 1, 2026, ABC Corp. acquired machinery for ₱1,200,000... What is the carrying amount on December 31, 2026?&#10;A. ₱960,000   B. ₱1,000,000   C. ₱1,080,000   D. ₱1,120,000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 pr-8 text-slate-200 text-xs focus:outline-none focus:border-amber-500 resize-none font-sans leading-relaxed"></textarea>
               <button type="button" onclick="openFieldExpand('customQuestionPromptInput', 'Question Prompt')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
             </div>
           </div>
 
-          <!-- DYNAMIC SUB-FORMS -->
-          <!-- 1. CODAL FIELDS -->
+          <!-- 1. COMPUTATIONAL / STANDARD FIELDS -->
           <div id="archetypeCodalFields" class="space-y-3">
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-amber-300 font-bold mb-1">Verbatim Statutory Text / Operative Rule Summary</label>
+              <label class="block text-[10px] font-mono uppercase text-amber-300 font-bold mb-1">Correct Answer &amp; Governing Standard / Formula</label>
               <div class="relative">
-                <textarea id="codalRuleInput" rows="2" placeholder="State the statutory provision text..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
-                <button type="button" onclick="openFieldExpand('codalRuleInput', 'Statutory Text')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <textarea id="codalRuleInput" rows="2" placeholder="Correct Choice: B. ₱1,000,000 — Under PAS 16, par. 30..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
+                <button type="button" onclick="openFieldExpand('codalRuleInput', 'Governing Standard / Formula')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-emerald-400 font-bold mb-1">Essential Elements & Requisites (Numbered Enumeration)</label>
+              <label class="block text-[10px] font-mono uppercase text-emerald-400 font-bold mb-1">Step-by-Step Peso Computation Schedule / Requisites</label>
               <div class="relative">
-                <textarea id="codalRequisitesInput" rows="3" placeholder="(1) That death is impending...&#10;(2) That the declarant is conscious of impending death...&#10;(3) That the declaration refers to the cause and surrounding circumstances..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none font-mono leading-relaxed"></textarea>
-                <button type="button" onclick="openFieldExpand('codalRequisitesInput', 'Essential Elements')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <textarea id="codalRequisitesInput" rows="3" placeholder="(1) Initial Cost: ₱1,200,000&#10;(2) Less: Accumulated Depreciation (₱1,200,000 - ₱200,000) / 5 = ₱200,000&#10;(3) Carrying Amount: ₱1,000,000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none font-mono leading-relaxed"></textarea>
+                <button type="button" onclick="openFieldExpand('codalRequisitesInput', 'Peso Computation / Requisites')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div class="relative group">
-                <label class="block text-[10px] font-mono uppercase text-amber-400 font-bold mb-1">Express Statutory Exceptions / Provisos</label>
+                <label class="block text-[10px] font-mono uppercase text-amber-400 font-bold mb-1">Exceptions / Special Thresholds</label>
                 <div class="relative">
-                  <textarea id="codalStatExceptionsInput" rows="2" placeholder="(1) ..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none font-mono"></textarea>
-                  <button type="button" onclick="openFieldExpand('codalStatExceptionsInput', 'Statutory Exceptions')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                  <textarea id="codalStatExceptionsInput" rows="2" placeholder="(1) Residual value revision is accounted for prospectively under PAS 8..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none font-mono"></textarea>
+                  <button type="button" onclick="openFieldExpand('codalStatExceptionsInput', 'Exceptions / Thresholds')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
                 </div>
               </div>
               <div class="relative group">
-                <label class="block text-[10px] font-mono uppercase text-sky-400 font-bold mb-1">Jurisprudential Exceptions & Doctrines</label>
+                <label class="block text-[10px] font-mono uppercase text-sky-400 font-bold mb-1">Board Distractor Elimination (Why A, C, D are Wrong)</label>
                 <div class="relative">
-                  <textarea id="codalJurisExceptionsInput" rows="2" placeholder="(1) ..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none font-mono"></textarea>
-                  <button type="button" onclick="openFieldExpand('codalJurisExceptionsInput', 'Jurisprudential Exceptions')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                  <textarea id="codalJurisExceptionsInput" rows="2" placeholder="A ignores salvage value; C uses 6-year life..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none font-mono"></textarea>
+                  <button type="button" onclick="openFieldExpand('codalJurisExceptionsInput', 'Distractor Rationale')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- 2. CASE FIR FIELDS -->
+          <!-- 2. JOURNAL ENTRY & FS PRESENTATION FIELDS -->
           <div id="archetypeCaseFields" class="space-y-3 hidden">
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-amber-400 font-bold mb-1">Material Operative Facts & Procedural Posture</label>
+              <label class="block text-[10px] font-mono uppercase text-amber-400 font-bold mb-1">Transaction Facts &amp; Account Balances</label>
               <div class="relative">
-                <textarea id="caseFactsInput" rows="3" placeholder="State the material operative facts, parties, and trial history..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
-                <button type="button" onclick="openFieldExpand('caseFactsInput', 'Material Facts')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <textarea id="caseFactsInput" rows="3" placeholder="State the transaction dates, peso amounts, and given trial balance figures..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
+                <button type="button" onclick="openFieldExpand('caseFactsInput', 'Transaction Facts')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-amber-300 font-bold mb-1">Precise Legal Issue</label>
+              <label class="block text-[10px] font-mono uppercase text-amber-300 font-bold mb-1">Accounting / Audit Issue</label>
               <div class="relative">
-                <textarea id="caseIssueInput" rows="2" placeholder="Whether or not the evidence is admissible..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
-                <button type="button" onclick="openFieldExpand('caseIssueInput', 'Legal Issue')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <textarea id="caseIssueInput" rows="2" placeholder="Proper initial recognition, adjusting entry, and FS classification..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
+                <button type="button" onclick="openFieldExpand('caseIssueInput', 'Accounting Issue')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div class="relative group">
-                <label class="block text-[10px] font-mono uppercase text-sky-400 font-bold mb-1">Supreme Court Ruling (Categorical)</label>
+                <label class="block text-[10px] font-mono uppercase text-sky-400 font-bold mb-1">Pro-Forma Journal Entries (Dr / Cr)</label>
                 <div class="relative">
-                  <textarea id="caseRulingInput" rows="2" placeholder="YES/NO. The Supreme Court held that..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
-                  <button type="button" onclick="openFieldExpand('caseRulingInput', 'SC Ruling')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                  <textarea id="caseRulingInput" rows="2" placeholder="Dr. Right-of-Use Asset ₱xxx / Cr. Lease Liability ₱xxx" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
+                  <button type="button" onclick="openFieldExpand('caseRulingInput', 'Journal Entries')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
                 </div>
               </div>
               <div class="relative group">
-                <label class="block text-[10px] font-mono uppercase text-emerald-400 font-bold mb-1">Controlling Ratio Decidendi & Legal Test</label>
+                <label class="block text-[10px] font-mono uppercase text-emerald-400 font-bold mb-1">FS Line-Item Effect &amp; PFRS/PAS Basis</label>
                 <div class="relative">
-                  <textarea id="caseRatioInput" rows="2" placeholder="The legal principle established is..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
-                  <button type="button" onclick="openFieldExpand('caseRatioInput', 'Ratio Decidendi')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                  <textarea id="caseRatioInput" rows="2" placeholder="Current vs. Non-Current split, OCI vs. P&L impact..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
+                  <button type="button" onclick="openFieldExpand('caseRatioInput', 'FS Presentation & Basis')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- 3. BAR ALAC HYPOTHETICAL & PROCEDURAL REMEDY -->
+          <!-- 3. TAX / RFBT SITUATIONAL PROBLEM -->
           <div id="archetypeAlacFields" class="space-y-2 hidden">
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-emerald-400 font-bold mb-0.5">A - Direct Answer / Core Ruling</label>
+              <label class="block text-[10px] font-mono uppercase text-emerald-400 font-bold mb-0.5">1. Categorical Answer / Selected Choice (A–D)</label>
               <div class="relative">
-                <input type="text" id="alacAInput" placeholder="Yes / No / The objection must be sustained..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none" />
-                <button type="button" onclick="openFieldExpand('alacAInput', 'ALAC: Answer')" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <input type="text" id="alacAInput" placeholder="Choice C (₱45,000 VAT Payable) / Valid / Void..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none" />
+                <button type="button" onclick="openFieldExpand('alacAInput', 'Direct Answer')" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-amber-400 font-bold mb-0.5">L - Legal Basis (Statute & Jurisprudence)</label>
+              <label class="block text-[10px] font-mono uppercase text-amber-400 font-bold mb-0.5">2. Statutory / Tax Code / Standard Basis</label>
               <div class="relative">
-                <textarea id="alacLInput" rows="2" placeholder="Under Rule 130, Section... and the landmark ruling in..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none"></textarea>
-                <button type="button" onclick="openFieldExpand('alacLInput', 'ALAC: Legal Basis')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <textarea id="alacLInput" rows="2" placeholder="Under NIRC Sec. 106 as amended by RA 11976 (EOPT) / Revised Corporation Code Sec. 22..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none"></textarea>
+                <button type="button" onclick="openFieldExpand('alacLInput', 'Statutory / Tax Basis')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-amber-300 font-bold mb-0.5">A - Factual Application to Problem</label>
+              <label class="block text-[10px] font-mono uppercase text-amber-300 font-bold mb-0.5">3. Computation / Application to Problem Facts</label>
               <div class="relative">
-                <textarea id="alacAppInput" rows="2" placeholder="Applying the rule to the problem facts..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none"></textarea>
-                <button type="button" onclick="openFieldExpand('alacAppInput', 'ALAC: Application')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <textarea id="alacAppInput" rows="2" placeholder="Output VAT (₱500,000 x 12% = ₱60,000) less Input VAT (₱15,000) = ₱45,000..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none resize-none"></textarea>
+                <button type="button" onclick="openFieldExpand('alacAppInput', 'Computation & Application')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-sky-400 font-bold mb-0.5">C - Definitive Conclusion</label>
+              <label class="block text-[10px] font-mono uppercase text-sky-400 font-bold mb-0.5">4. Final Conclusion &amp; Distractor Check</label>
               <div class="relative">
-                <input type="text" id="alacCInput" placeholder="Hence, the evidence is inadmissible." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none" />
-                <button type="button" onclick="openFieldExpand('alacCInput', 'ALAC: Conclusion')" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
+                <input type="text" id="alacCInput" placeholder="Hence, Choice C is correct." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 pr-8 text-slate-200 text-xs focus:outline-none" />
+                <button type="button" onclick="openFieldExpand('alacCInput', 'Final Conclusion')" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
           </div>
@@ -734,9 +733,9 @@
           <!-- 4. SIMPLE FRONT & BACK -->
           <div id="archetypeSimpleFields" class="space-y-3 hidden">
             <div class="relative group">
-              <label class="block text-[10px] font-mono uppercase text-emerald-400 font-bold mb-1">Authoritative Model Answer / Back of Card</label>
+              <label class="block text-[10px] font-mono uppercase text-emerald-400 font-bold mb-1">Authoritative Model Answer &amp; Rationale</label>
               <div class="relative">
-                <textarea id="simpleAnswerInput" rows="5" placeholder="Enter the complete model answer that will be checked during recitation..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
+                <textarea id="simpleAnswerInput" rows="5" placeholder="Enter the complete CPALE model answer, formula, or standard rule..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 pr-8 text-slate-200 text-xs focus:outline-none resize-none leading-relaxed"></textarea>
                 <button type="button" onclick="openFieldExpand('simpleAnswerInput', 'Model Answer')" class="absolute right-2 top-2 text-slate-500 hover:text-amber-400 transition text-sm">⤢</button>
               </div>
             </div>
@@ -750,12 +749,11 @@
             <p class="text-[11px] text-slate-400 leading-relaxed">
               Paste multi-row text directly from Excel, Google Sheets, or Anki text exports.<br>
               Columns supported (Tab or Comma separated):<br>
-              <code class="text-amber-300 font-mono">Topic [TAB] Question [TAB] Model Answer [TAB] Citation (Optional)</code><br>
-              <span class="text-slate-500 text-[10px]">Note: HTML tags (<code class="font-mono">&lt;br&gt;</code>) and Anki media tags (<code class="font-mono">[sound:...]</code>) will be stripped automatically.</span>
+              <code class="text-amber-300 font-mono">Topic [TAB] Question &amp; Choices (A-D) [TAB] Solution / Model Answer [TAB] Standard/Citation</code>
             </p>
           </div>
 
-          <textarea id="bulkImportRawText" rows="11" oninput="previewBulkImportCount()" placeholder="Topic&#9;Question&#9;Model Answer&#9;Citation&#10;Dying Declaration&#9;What are the requisites of a dying declaration?&#9;(1) Impending death (2) Consciousness of death (3) Refers to cause...&#9;Rule 130 Sec. 38" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-slate-200 text-xs font-mono focus:outline-none focus:border-amber-500 resize-none leading-relaxed"></textarea>
+          <textarea id="bulkImportRawText" rows="11" oninput="previewBulkImportCount()" placeholder="Topic&#9;Question&#9;Model Answer&#9;Citation&#10;PAS 2 Inventories&#9;Which cost is excluded from inventory under PAS 2? A. Freight-in B. Abnormal spoilage C. Import duties D. Purchase price&#9;B. Abnormal amounts of wasted materials, labor, or other production costs are expensed as incurred under PAS 2, par. 16.&#9;PAS 2, par. 16" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-slate-200 text-xs font-mono focus:outline-none focus:border-amber-500 resize-none leading-relaxed"></textarea>
           <div class="flex items-center justify-between text-xs font-mono text-slate-400">
             <span id="bulkParseStatus">0 card rows detected</span>
             <span class="text-emerald-400">0 ms Instant Client-Side Parsing</span>
@@ -902,15 +900,15 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-[11px] font-sans">
         <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
           <b class="text-amber-300 font-mono block mb-1">1. Setup & Scope (0:00 - 0:30)</b>
-          <span class="text-slate-400">Paste your free Gemini key, pick your law subject, and attach course syllabi or case digests.</span>
+          <span class="text-slate-400">Paste your free Gemini key, pick your CPALE subject (FAR, AFAR, MS, Auditing, Taxation, RFBT), and attach syllabi or reference books.</span>
         </div>
         <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
           <b class="text-sky-300 font-mono block mb-1">2. Presets & Compilation (0:30 - 1:00)</b>
-          <span class="text-slate-400">Select Codal, FIR, or Bar Sim, click Pre-Compile. Once finished, your synthesized cards are automatically saved into your library where you can launch, rename, or polish them anytime.</span>
+          <span class="text-slate-400">Select Computational MCQs, Theory & Standards, Audit & Caselets, or Full Board Sim, click Pre-Compile. Once finished, your synthesized CPALE cards are saved into your library.</span>
         </div>
         <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
           <b class="text-emerald-300 font-mono block mb-1">3. Offline Card Drills (1:00 - 1:30)</b>
-          <span class="text-slate-400">Recite under timed conditions, check against statutory benchmarks, and auto-queue weak cards.</span>
+          <span class="text-slate-400">Solve CPALE A–D MCQs under timed conditions with the Calc & PV Pad, verify peso schedules, and auto-queue weak cards.</span>
         </div>
         <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
           <b class="text-purple-300 font-mono block mb-1">4. Sync & Exporting (1:30 - 2:00)</b>
@@ -1036,42 +1034,42 @@
       <div class="p-3.5 rounded-xl bg-slate-950 border border-amber-700/50 space-y-2">
         <span class="text-xs font-mono font-bold uppercase text-amber-400 flex items-center space-x-2">
           <span class="w-5 h-5 rounded-full bg-amber-600 text-slate-950 flex items-center justify-center font-sans font-bold text-[11px]">3</span>
-          <span>Anchors & Coverage Scope (Unlocking the Gatekeeper)</span>
+          <span>Anchors &amp; Coverage Scope (Unlocking the Gatekeeper)</span>
         </span>
         <p class="text-slate-300">
-          To prevent AI hallucinations, the launch button remains locked until you set up your workspace:
+          To keep board questions strictly grounded in the PRC-BOA syllabus and Philippine standards, the launch button stays locked until you set:
         </p>
         <ul class="list-disc list-inside space-y-1 text-slate-400 text-[11px]">
-          <li><b>Requirement 1:</b> Provide at least one anchor (Course Syllabus in Anchor 1 OR Reference Sources in Anchor 2).</li>
-          <li><b>Requirement 2:</b> Enter your assigned module in <b>Target Coverage Scope</b> (e.g., <code class="text-amber-300">Rule 130 Section 37-50, Dying Declaration, Fabillar v. Paller</code>).</li>
+          <li><b>Requirement 1:</b> Attach at least one anchor (PRC-BOA / University BSA Syllabus in Anchor 1 OR Textbook / Standard / Reviewer PDFs in Anchor 2).</li>
+          <li><b>Requirement 2:</b> Enter your assigned topic in <b>Target Coverage Scope</b> (e.g., <code class="text-amber-300">PAS 16 PPE, PFRS 15 Revenue, NIRC Corporate Income Tax, RA 11232</code>).</li>
         </ul>
       </div>
 
-<!-- PILLAR 4: THE 10-DIMENSION MATRIX & PRESETS -->
-<div class="p-3.5 rounded-xl bg-slate-950 border border-emerald-700/50 space-y-2">
-  <span class="text-xs font-mono font-bold uppercase text-emerald-400 flex items-center space-x-2">
-    <span class="w-5 h-5 rounded-full bg-emerald-600 text-slate-950 flex items-center justify-center font-sans font-bold text-[11px]">4</span>
-    <span>Recitation Mode Presets & 10-Dimension Matrix</span>
-  </span>
-  <p class="text-slate-300 text-[11px]">
-    Select a primary preset profile, or check and uncheck individual dimension boxes in the Setup matrix — <b>you can customize as you need accordingly</b> to match your professor's specific interrogation style:
-  </p>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 font-sans text-[11px]">
+      <!-- PILLAR 4: THE 6-ARCHETYPE CPALE BOARD MATRIX & PRESETS -->
+      <div class="p-3.5 rounded-xl bg-slate-950 border border-emerald-700/50 space-y-2">
+        <span class="text-xs font-mono font-bold uppercase text-emerald-400 flex items-center space-x-2">
+          <span class="w-5 h-5 rounded-full bg-emerald-600 text-slate-950 flex items-center justify-center font-sans font-bold text-[11px]">4</span>
+          <span>CPALE Board Exam Presets &amp; 6-Archetype Matrix</span>
+        </span>
+        <p class="text-slate-300 text-[11px]">
+          Select a preset profile or toggle individual MCQ archetypes in Setup to match your target CPALE subject:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 font-sans text-[11px]">
           <div class="p-2 bg-slate-900 rounded-lg border border-slate-800">
-            <b class="text-amber-400 font-mono block mb-0.5">§ Codal Mode (Dims 1–3)</b>
-            <span class="text-slate-400">Isolates statutory definitions, essential elements (numbered lists), and express statutory exceptions/provisos.</span>
+            <b class="text-amber-400 font-mono block mb-0.5">&#129518; Computational MCQs (1–2)</b>
+            <span class="text-slate-400">Multi-step peso schedules, CVP, standard variances, NPV/IRR, tax due, and financial ratios.</span>
           </div>
           <div class="p-2 bg-slate-900 rounded-lg border border-slate-800">
-            <b class="text-sky-400 font-mono block mb-0.5">⚖️ Case FIR Mode (Dims 5–8)</b>
-            <span class="text-slate-400">Tests operative facts, legal issues, ratio decidendi, and comparative companion case synthesis (Case X vs. Case Y).</span>
+            <b class="text-sky-400 font-mono block mb-0.5">&#128214; Theory &amp; Standards (3–4)</b>
+            <span class="text-slate-400">PFRS/PAS, PSA, NIRC/EOPT, and RFBT rules, Statement I/II traps, journal entries, and FS classification.</span>
           </div>
           <div class="p-2 bg-slate-900 rounded-lg border border-slate-800">
-            <b class="text-emerald-400 font-mono block mb-0.5">◈ Reviewer Mode (Dims 1, 4, 9, 10)</b>
-            <span class="text-slate-400">Focuses on doctrinal distinctions, realistic Bar ALAC problem hypotheticals, and procedural remedies.</span>
+            <b class="text-emerald-400 font-mono block mb-0.5">&#9878; Audit &amp; Caselets (5–6)</b>
+            <span class="text-slate-400">Audit assertions, substantive tests, opinion modifications, and Tax/RFBT statutory requisites &amp; cases.</span>
           </div>
           <div class="p-2 bg-slate-900 rounded-lg border border-slate-800">
-            <b class="text-emerald-300 font-mono block mb-0.5">★ Full Bar Sim (All 10 Dims)</b>
-            <span class="text-slate-400">Simulates complete bar examinations by cycling across every codal, case, and hypothetical dimension.</span>
+            <b class="text-emerald-300 font-mono block mb-0.5">&#9733; Full Board Sim (All 6 Styles)</b>
+            <span class="text-slate-400">Cycles across all 6 PRC-BOA CPALE MCQ styles with A–D choices and step-by-step rationales.</span>
           </div>
         </div>
       </div>
@@ -1812,103 +1810,63 @@
     const DIMENSIONS_REGISTRY = {
       1: {
         id: 1,
-        code: "DEF_NATURE",
-        label: "1. Legal Definition & Nature Only (Concept, Scope & Policy)",
-        shortTag: "DIM 1 · DEFINITION & NATURE ONLY",
-        exportTag: "Legal Definition & Policy",
+        code: "COMP_SCHEDULE",
+        label: "1. Situational Computational Problem (Multi-Step Peso Schedule & A-D Choices)",
+        shortTag: "STYLE 1 · COMPUTATIONAL MCQ",
+        exportTag: "Situational Computational MCQ",
         category: "CODAL",
         schemaType: "CODAL",
-        placeholder: "DEFINITION & NATURE ONLY:\nState the statutory or doctrinal definition, legal nature, scope of application, and underlying policy (do not list elements or exceptions unless part of the core definition)..."
+        placeholder: "SELECTED CHOICE (A, B, C, or D) & PESO SCHEDULE:\nState your chosen letter (A/B/C/D) and show your step-by-step peso computation schedule..."
       },
       2: {
         id: 2,
-        code: "ELEMENTS_REQ",
-        label: "2. Essential Elements & Requisites Only (Numbered Enumeration)",
-        shortTag: "DIM 2 · ESSENTIAL REQUISITES ONLY",
-        exportTag: "Essential Elements & Requisites",
+        code: "FORMULA_RATIO",
+        label: "2. Formula, Variance & Ratio Drill (CVP, Variances, NPV/IRR, Tax & Ratios)",
+        shortTag: "STYLE 2 · FORMULA & VARIANCE MCQ",
+        exportTag: "Formula & Variance MCQ",
         category: "CODAL",
         schemaType: "CODAL",
-        placeholder: "ESSENTIAL ELEMENTS & REQUISITES ONLY:\nEnumerate all mandatory statutory or doctrinal requisites in a clean numbered list:\n(1) ...\n(2) ...\n(3) ..."
+        placeholder: "SELECTED CHOICE (A, B, C, or D) & FORMULA WORKOUT:\nState your chosen letter (A/B/C/D), write the governing formula, and show the numerical substitution..."
       },
       3: {
         id: 3,
-        code: "STAT_EXCEPTIONS",
-        label: "3. Statutory & Jurisprudential Exceptions Only (Provisos & Case Exceptions)",
-        shortTag: "DIM 3 · STATUTORY & CASE EXCEPTIONS",
-        exportTag: "Statutory Provisos & Jurisprudential Exceptions",
-        category: "CODAL",
+        code: "THEORY_TRAP",
+        label: "3. Theory MCQ & Statement I / II Trap (PFRS/PAS, PSA, NIRC, RFBT Rules)",
+        shortTag: "STYLE 3 · THEORY & STATEMENT TRAP",
+        exportTag: "Theory & Standard MCQ",
+        category: "CASE",
         schemaType: "CODAL",
-        placeholder: "STATUTORY PROVISOS & JURISPRUDENTIAL EXCEPTIONS:\nA. Statutory Exceptions / Provisos:\n(1) ...\n\nB. Jurisprudential / Case-Law Exceptions & Qualifications:\n(1) ..."
+        placeholder: "SELECTED CHOICE (A, B, C, or D) & STANDARD RATIONALE:\nState your chosen letter (A/B/C/D), evaluate Statement I / Statement II, and cite the governing PFRS/PAS, PSA, NIRC, or RFBT rule..."
       },
       4: {
         id: 4,
-        code: "DOCTRINAL_DISTINCTION",
-        label: "4. Doctrinal Distinctions (Structured Comparative Prose)",
-        shortTag: "DIM 4 · DOCTRINAL DISTINCTION",
-        exportTag: "Doctrinal Distinction",
-        category: "REVIEWER",
-        schemaType: "ALAC",
-        placeholder: "COMPARATIVE DISTINCTION:\nContrast the two concepts in structured comparative paragraphs covering: (1) Definition & Nature; (2) Governing Rule / Requisites; (3) Scope & Legal Effect..."
+        code: "JE_FS_EFFECT",
+        label: "4. Journal Entry, Account & FS Effect (Dr/Cr & Current vs. Non-Current)",
+        shortTag: "STYLE 4 · JOURNAL ENTRY & FS EFFECT",
+        exportTag: "Journal Entry & FS Presentation MCQ",
+        category: "CASE",
+        schemaType: "CODAL",
+        placeholder: "SELECTED CHOICE (A, B, C, or D) & JOURNAL ENTRY:\nState your chosen letter (A/B/C/D), show the required Debit/Credit entry, and state the FS classification / P&L vs. OCI impact..."
       },
       5: {
         id: 5,
-        code: "CASE_FACTS_POSTURE",
-        label: "5. Case Facts & Procedural Posture (Socratic Fact Grilling)",
-        shortTag: "DIM 5 · CASE FACTS & POSTURE",
-        exportTag: "Case Facts & Procedural Posture",
-        category: "CASE",
-        schemaType: "FIR",
-        placeholder: "OPERATIVE FACTS & PROCEDURAL POSTURE:\nState the parties, the material operative facts that triggered the dispute, and how the lower courts ruled before reaching the Supreme Court..."
+        code: "AUDIT_PROC",
+        label: "5. Audit Procedures, Evidence & Opinion (Assertions, Controls & Modifications)",
+        shortTag: "STYLE 5 · AUDIT & ASSURANCE MCQ",
+        exportTag: "Audit Procedures & Opinion MCQ",
+        category: "REVIEWER",
+        schemaType: "ALAC",
+        placeholder: "SELECTED CHOICE (A, B, C, or D) & PSA RATIONALE:\nState your chosen letter (A/B/C/D), identify the relevant assertion or risk, and explain the appropriate PSA audit procedure or opinion modification..."
       },
       6: {
         id: 6,
-        code: "CASE_HOLDING_RATIO",
-        label: "6. Case Holding & Ratio Decidendi (Controlling Legal Test)",
-        shortTag: "DIM 6 · HOLDING & RATIO DECIDENDI",
-        exportTag: "Case Holding & Ratio Decidendi",
-        category: "CASE",
-        schemaType: "FIR",
-        placeholder: "SUPREME COURT HOLDING & RATIO DECIDENDI:\nState the categorical disposition of the Supreme Court and explain the controlling legal doctrine / test established in this precedent..."
-      },
-      7: {
-        id: 7,
-        code: "CASE_FULL_FIR",
-        label: "7. Complete Case Brief (Full FIR Cold Call)",
-        shortTag: "DIM 7 · COMPLETE CASE BRIEF (FIR)",
-        exportTag: "Complete Case Brief (FIR)",
-        category: "CASE",
-        schemaType: "FIR",
-        placeholder: "FACTS: (State the material operative facts: parties, subject matter, and controversy)\n\nISSUE: (State the precise legal question resolved by the Supreme Court)\n\nRULING & RATIO: (State the categorical ruling and controlling ratio decidendi)..."
-      },
-      8: {
-        id: 8,
-        code: "CASE_DUAL_SYNTHESIS",
-        label: "8. Comparative Precedent Synthesis (Case X vs. Case Y)",
-        shortTag: "DIM 8 · DUAL-CASE SYNTHESIS (X vs. Y)",
-        exportTag: "Comparative Precedent Synthesis",
-        category: "CASE",
-        schemaType: "COMPARATIVE_FIR",
-        placeholder: "CASE 1 (FACTS, ISSUE & RULING):\n\nCASE 2 (FACTS, ISSUE & RULING):\n\nCOMPARATIVE SYNTHESIS: Explain the factual hinge or doctrinal reason why the Supreme Court reached these rulings..."
-      },
-      9: {
-        id: 9,
-        code: "BAR_HYPOTHETICAL",
-        label: "9. Bar Problem Hypotheticals (4-Part ALAC Application)",
-        shortTag: "DIM 9 · BAR HYPOTHETICAL (ALAC)",
-        exportTag: "Bar Problem Hypothetical (ALAC)",
+        code: "STAT_CASELET",
+        label: "6. Statutory Requisites & Legal/Tax Caselet (NIRC/EOPT, Civil Code, RCC)",
+        shortTag: "STYLE 6 · TAX / RFBT CASELET MCQ",
+        exportTag: "Statutory & Legal/Tax Caselet MCQ",
         category: "REVIEWER",
         schemaType: "ALAC",
-        placeholder: "A - DIRECT ANSWER: (Yes/No/Admissible/Inadmissible)\n\nL - LEGAL BASIS: (Cite the governing codal section or Supreme Court doctrine)\n\nA - APPLICATION: (Apply the rule strictly to the facts of the problem)\n\nC - CONCLUSION: (State your definitive conclusion)..."
-      },
-      10: {
-        id: 10,
-        code: "PROCEDURAL_REMEDIES",
-        label: "10. Procedural Remedies & Defenses (Vehicles & Bars)",
-        shortTag: "DIM 10 · PROCEDURAL REMEDIES & BARS",
-        exportTag: "Procedural Remedies & Bars",
-        category: "REVIEWER",
-        schemaType: "ALAC",
-        placeholder: "PROCEDURAL REMEDY / DEFENSE:\nIdentify the proper procedural vehicle, forum, prescriptive period, or affirmative bar under the Rules of Court and jurisprudence..."
+        placeholder: "SELECTED CHOICE (A, B, C, or D) & STATUTORY APPLICATION:\nState your chosen letter (A/B/C/D), cite the controlling NIRC/CREATE/EOPT or Civil Code/RCC provision, and apply it to the caselet..."
       }
     };
 
@@ -3974,7 +3932,7 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
       // =========================================================================
       // PASS 5: UNIFIED AGGREGATION ACROSS ACTIVE DIMENSIONS
       // =========================================================================
-      const activeIds = state.activeDimensions.length > 0 ? state.activeDimensions : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const activeIds = state.activeDimensions.length > 0 ? state.activeDimensions : [1, 2, 3, 4, 5, 6];
       const activeCodalDims = activeIds.filter(d => [1, 2, 3].includes(d));
       const activeReviewerDims = activeIds.filter(d => [1, 4, 9, 10].includes(d));
       const activeSingleCaseDims = activeIds.filter(d => [5, 6, 7].includes(d));
@@ -4046,7 +4004,7 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
         return DIMENSIONS_REGISTRY[item.forcedDimensionId];
       }
 
-      const activeIds = state.activeDimensions.length > 0 ? state.activeDimensions : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const activeIds = state.activeDimensions.length > 0 ? state.activeDimensions : [1, 2, 3, 4, 5, 6];
 
       if (item.isDualPair) {
         return DIMENSIONS_REGISTRY[8];
@@ -4253,11 +4211,11 @@ const hasSeenVideo = localStorage.getItem('bar_has_seen_video_tutorial');
       const mergedContents = JSON.parse(JSON.stringify(contents));
       if (systemInstruction && mergedContents.length > 0 && mergedContents[0].parts && mergedContents[0].parts[0]) {
         const amendatoryAuditMandate = 
-`[PHILIPPINE BAR EXAM REVIEW PROFESSOR — SYLLABUS FIDELITY & DOCTRINAL PROGRESSION MANDATE]:
+`[PHILIPPINE PRC-BOA CPALE BOARD EXAMINER — SYLLABUS FIDELITY & CURRENT STANDARDS/TAX MANDATE]:
 1. ACTIVE SUBJECT WORKSPACE: ${currentSubjectName}
 
 2. DUAL-OBLIGATION DIRECTIVE (SYLLABUS ASSIGNMENT + PREVAILING LAW):
-   You are an authoritative Philippine Bar Review Director. Syllabi regularly assign historic landmark cases and foundational codals that have since been modified, superseded, or abandoned. 
+   You are an authoritative Philippine PRC-BOA CPALE Board Examiner across FAR, AFAR, MS, Auditing, Taxation, and RFBT. Every Multiple-Choice Question MUST present 4 distinct board options (A., B., C., and D.) and a step-by-step peso computation schedule, journal entry, or standard/statutory rationale. 
    - DO NOT replace or skip the assigned topic or case. If the question asks for "Republic v. Molina", drill the facts, issue, ruling, and original guidelines of Molina.
    - DO NOT erase historic codals if assigned. If a question asks for the classic RPC provision on Statutory Rape or the old Dead Man's Statute, test the candidate on the concept assigned.
 
@@ -4486,7 +4444,7 @@ CRITICAL MANDATE:
         : batchSize;
 
       const sourceExcerpts = state.loadedFiles.length > 0 ? retrieveRelevantExcerpts(scopeText, 4500) : "";
-      const activeIds = state.activeDimensions.length > 0 ? state.activeDimensions : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const activeIds = state.activeDimensions.length > 0 ? state.activeDimensions : [1, 2, 3, 4, 5, 6];
       const activeLabels = activeIds.map(id => DIMENSIONS_REGISTRY[id]?.label).join('; ');
       const wantsCases = activeIds.some(id => [5, 6, 7, 8].includes(id));
 
@@ -4713,7 +4671,7 @@ CRITICAL ANTI-TRUNCATION MANDATE (PHASE 6):
           }]
         }];
 
-        const rawJson = await callGemini(prompt, "You are an authoritative Philippine Bar Examiner formulating complete, non-truncated codal benchmarks.", codalSchema);
+        const rawJson = await callGemini(prompt, "You are an authoritative Philippine PRC-BOA CPALE Board Examiner formulating complete, accurate A-D Multiple-Choice Questions with step-by-step peso schedules, journal entries, and distractor rationales.", codalSchema);
         const parsed = parseAIJson(rawJson);
 
         // Auto-heal truncation using local canonical registry if AI cut off mid-list
@@ -5118,7 +5076,7 @@ TASK: Grade the student's recitation strictly on the specific dimension asked in
       }];
 
       try {
-        const rawJson = await callGemini(evalPrompt, "Grade strictly under Philippine Bar & Law School Recitation substantial compliance standards.", evalSchema);
+        const rawJson = await callGemini(evalPrompt, "Grade strictly under Philippine PRC-BOA CPALE Board Exam standards: verify whether the candidate selected the correct MCQ letter (A, B, C, or D), applied the exact PFRS/PAS, PSA, NIRC/TRAIN/CREATE/EOPT, or RFBT rule, and computed the peso figures accurately.", evalSchema);
         const data = parseAIJson(rawJson);
 
         let deltaMsg = await updateTopicMastery(currentItem.topic || currentItem.case_title, data.rating, state.isAssisted);
@@ -5330,7 +5288,7 @@ TASK: Grade the student's recitation strictly on the specific dimension asked in
 
         document.getElementById('questionContainer').innerHTML = `
           <div class="text-center py-8 space-y-4">
-            <span class="text-3xl font-serif text-amber-400 block mb-2">Recitation Batch Concluded</span>
+            <span class="text-3xl font-serif text-amber-400 block mb-2">CPALE Practice Batch Concluded</span>
             <p class="text-slate-300 text-sm">Completed all ${state.totalQuestions} cards in Batch ${state.activeBatchIdx + 1} under Leitner spaced recall.</p>
             
             <div id="fileMetricToast" class="hidden max-w-md mx-auto p-2.5 bg-emerald-950/60 border border-emerald-800/80 rounded-lg text-xs font-mono text-emerald-300"></div>
