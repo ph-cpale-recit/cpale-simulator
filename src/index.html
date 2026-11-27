@@ -2319,6 +2319,11 @@
       return text.trim();
     }
 
+    function formatMcqChoicesLayout(text) {
+      if (!text) return '';
+      return text.replace(/\s+(?=[A-D]\.\s+[A-Z0-9₱(])/g, '\n\n');
+    }
+
     function sanitizeQuestionPrompt(text) {
       if (!text) return '';
       return text
@@ -4959,7 +4964,7 @@ In benchmark_alac:
         if (existingIdx !== -1) state.activeDeckCardsPool[existingIdx] = cardRecord;
         else state.activeDeckCardsPool.push(cardRecord);
 
-        document.getElementById('questionContainer').innerText = state.currentQuestionText;
+        document.getElementById('questionContainer').innerText = formatMcqChoicesLayout(state.currentQuestionText);
         document.getElementById('submitAnswerBtn').disabled = false;
         document.getElementById('saveDeckHeaderBtn').classList.remove('hidden');
         updateWordCount();
