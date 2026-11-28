@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    bar_simulator_lib::run()
+    cpale_simulator_lib::run()
 }
