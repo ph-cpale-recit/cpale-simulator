@@ -15,8 +15,7 @@
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ],
-    "identifier": "org.phcpalerecit.cpale_simulator"
+    ]
   },
   "app": {
     "withGlobalTauri": true,
