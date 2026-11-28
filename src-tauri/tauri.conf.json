@@ -2,7 +2,7 @@
   "$schema": null,
   "productName": "CPALE Review Simulator",
   "version": "0.1.0",
-  "identifier": "com.user.ph-cpale-recit",
+  "identifier": "io.github.phcpalerecit.cpalesimulator",
   "build": {
     "frontendDist": "https://ph-bar-recit.github.io/bar-recitation-simulator/"
   },
@@ -22,8 +22,8 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Bar Recitation Simulator",
-        "url": "https://ph-bar-recit.github.io/bar-recitation-simulator/",
+        "title": "CPALE Review Simulator",
+        "url": "https://ph-cpale-recit.github.io/cpale-simulator/",
         "width": 1280,
         "height": 800
       }
